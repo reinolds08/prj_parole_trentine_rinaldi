@@ -7,23 +7,59 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <!-- ..HEADER.. -->
-         <hr>
-         <h1>Editing / Input</h1>
-         <hr>
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="editing.html">EDITING/INPUT</a></li>
+                    <li><a href="ricerca.html">RICERCA/ARCHIVIO</a></li>
+                    <li><a href="info.html">INFO/GUIDA</a></li>
+                </ul>
+            </nav>
+            <img src="Immages/Trentino_CoA.svg" alt="Stemma" width="50">
+        </header>
 
-         <div id="box_input">
-            <p>Parola in italiano</p>
+         <hr style="border: none; height: 8px; background-color: #e30613; margin: 3px auto 5px auto;">
+         <h1 style="text-align: center;">Editing / Input</h1>
+         <hr style="border: none; height: 8px; background-color: #e30613; margin: 3px auto 5px auto;">
+
+         <br>
+         <div id="box_input" style="display: flex; flex-direction: column; align-items: center; text-align: center; border: 2px solid; border-radius: 10px; width: 300px; padding: 20px; margin: 0 auto;">
+            <p style="font-weight: bold;">Parola in italiano</p>
             <input type="text" placeholder="Inserisci parola" id="input_parola_inserita">
-            <p>Traduzione</p>
+            <br><p style="font-weight: bold;">Traduzione</p>
             <input type="text" placeholder="Inserisci traduzione" id="input_traduzione_parola">
-            <p>Inserisci audio con pronuncia</p>
-            <input type="file" placeholder="Inserisci file audio" accept="audio" id="input_fileAudio">
-            <p>Esempio</p>
+            <br><p style="font-weight: bold;">Inserisci audio con pronuncia</p>
+            <input type="file" accept="audio/*" id="input_fileAudio">
+            <br><p style="font-weight: bold;">Esempio</p>
             <input type="text" placeholder="Inserisci esempio" id="input_esempio"> <br><br>
-            <button>Invia richiesta</button>
+            <button style="padding: 10px; border-image: linear-gradient(to right, #005696, #ffdf00) 1; font-weight: bold;">Invia richiesta</button>
          </div>
 
-        <!-- ..FOOTER.. -->
+         <footer>
+            <img src="Immages/Trentino_CoA.svg" alt="Stemma Footer" width="60">
+            
+            <div>
+                <h4>DIRITTI E COPYRIGHT</h4>
+                <p>© 2026 Parole Trentine. All Rights Reserved.</p>
+            </div>
+    
+            <div>
+                <h4>CONTATTI</h4>
+                <p>e-mail: esempio@mail.it</p>
+                <p>+39 000 0000 000</p>
+                <p>@instagram.username</p>
+            </div>
+    
+            <div>
+                <h4>PAGINE</h4>
+                <ul>
+                    <li>Ricerca nell'archivio</li>
+                    <li>Chi Siamo</li>
+                    <li>Edit/Input</li>
+                    <li>Info/Guida</li>
+                </ul>
+            </div>
+        </footer>
     </body>
 </html>
