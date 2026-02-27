@@ -2,12 +2,18 @@
 
 
 
+
+
+
+
 /* Global Reset */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
+
+
 
 
 body {
@@ -20,10 +26,14 @@ body {
 }
 
 
+
+
 h1, h4, nav ul li {
     font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
     text-transform: uppercase;
 }
+
+
 
 
 /* Header - Colore #CB0E2C */
@@ -38,11 +48,15 @@ header {
 }
 
 
+
+
 nav ul {
     list-style: none;
     display: flex;
     gap: 25px;
 }
+
+
 
 
 nav ul li {
@@ -51,9 +65,13 @@ nav ul li {
 }
 
 
+
+
 nav ul li.active {
     border-bottom: 2px solid #fff;
 }
+
+
 
 
 /* Main Content */
@@ -64,33 +82,44 @@ main {
 }
 
 
+
+
 .ricercaTit {
-    font-size: 4rem; /* Circa 2cm come richiesto */
-    margin-bottom: 40px;
+    font-size: 2.5cm; /* Circa 2cm come richiesto */
+    margin-bottom: 50px;
+    font-weight: normal;
+    word-spacing: 0.25cm;
 }
+
+
 
 
 /* Search Box - Colore #CB0E2C */
 .search-container {
     display: flex;
-    justify-content: center;
+    justify-content: center;  
+    height: 100px;
 }
+
+
 
 
 .search-box {
     background-color: #CB0E2C;
-    padding: 12px 20px;
-    border-radius: 10px;
+    padding: 12px 12px;
+    border-radius: 20px;
     display: flex;
     align-items: center;
     width: 100%;
-    max-width: 600px;
+    max-width: 800px;
 }
+
+
 
 
 .search-box input {
     flex: 1;
-    padding: 10px 15px;
+    padding: 24px 19px;
     border-radius: 5px;
     border: none;
     font-size: 1rem;
@@ -98,11 +127,25 @@ main {
 }
 
 
+input::placeholder {
+    font-size: 22px;  
+}
+
+
+input {
+    font-size: 100px;
+    padding: 30px;
+}
+
+
 .search-icons {
-    margin-left: 15px;
+    margin-left: 5px;
     color: white;
     font-size: 1.2rem;
+    min-height: 100px;
 }
+
+
 
 
 /* Footer - Colore #1a1a1a */
@@ -128,11 +171,15 @@ a {
 }
 
 
+
+
 .sk{
     text-decoration: none;
     color: inherit; /* Il link prende il colore del testo circostante */
     font-size: 0.41cm
 }
+
+
 
 
 .div-footer {
@@ -141,13 +188,18 @@ a {
 }
 
 
+
+
 .div-footer h4 {
     color: #ffffff;
     font-size: 15px;
     margin-bottom: 20px;
     border-left: 3px solid #CB0E2C;
     padding-left: 10px;
+    font-weight: 500;
 }
+
+
 
 
 .div-footer p, .div-footer ul li {
@@ -158,15 +210,21 @@ a {
 }
 
 
+
+
 .div-footer a {
     color: #bbbbbb;
     text-decoration: none;
 }
 
 
+
+
 .div-footer ul {
     list-style: none;
 }
+
+
 
 
 /* Hover Effects */
@@ -175,6 +233,8 @@ a {
     transform: translateX(5px);
     transition: all 0.3s ease;
 }
+
+
 
 
 /* Mobile Responsive */
