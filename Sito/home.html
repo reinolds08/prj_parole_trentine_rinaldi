@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        /* Centratura universale */
+        body,
+        html {
+            margin: 0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #f4f4f4;
+            font-family: sans-serif;
+        }
+        /* Punto centrale di ancoraggio */
+        .container {
+            position: relative;
+            width: 0;
+            height: 0;
+        }
+        /* Stile uniforme dei bottoni */
+        .btn {
+            position: absolute;
+
+            /* Dimensioni fisse uguali per tutti per mantenere il cerchio perfetto */
+            width: 180px;
+            height: 180px;
+
+            background-color: #CB0E2C;
+            color: white;
+            border-radius: 50%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            text-align: center;
+            font-weight: bold;
+            box-sizing: border-box;
+            padding: 20px;
+            /* Font size aumentato come richiesto */
+            font-size: 1.2em;
+            /* Centra il blocco rispetto al punto di ancoraggio */
+            translate: -50% -50%;
+        }
+        /* Posizionamento nel cerchio (distanza di 220px per evitare che si tocchino) */
+        .n1 {
+            top: -150px;
+            left: 0;
+        }
+        /* Alto */
+        .n2 {
+            top: 60px;
+            left: 220px;
+        }
+        /* Destra */
+        .n3 {
+            top: 270px;
+            left: 0;
+        }
+        /* Basso */
+        .n4 {
+            top: 60px;
+            left: -220px;
+        }
+        /* Sinistra */
+    </style>
+</head>
+
+<body>
+
+    <h1
+        style="position: absolute; top: 50px; width: 100%; text-align: center; color: #333; font-size: 3rem; margin: 0; letter-spacing: -1px; font-family: sans-serif;">
+        Benvenuto in <span style="color: #CB0E2C;">Lemma!</span>
+    </h1>
+
+    <style>
+        /* Definizione dell'animazione pulsante */
+        @keyframes pulsante {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            /* Si ingrandisce leggermente */
+            100% {
+                transform: scale(1);
+            }
+            /* Torna alla dimensione originale */
+        }
+
+        .btn {
+            /* Applica l'animazione: 3 secondi di durata, fluida, infinita */
+            animation: pulsante 3s ease-in-out infinite;
+        }
+        /* Opzionale: sfalsa l'animazione dei bottoni per un effetto più organico */
+        .n2 {
+            animation-delay: 0.5s;
+        }
+        .n3 {
+            animation-delay: 1s;
+        }
+        .n4 {
+            animation-delay: 1.5s;
+        }
+    </style>
+
+    <div class="container">
+        <a href="index.html" class="btn n1">HOME</a>
+        <a href="editing.html" class="btn n2">SUGGERIMENTO<br>MODIFICA</a>
+        <a href="ricerca.html" class="btn n3">RICERCA<br>ARCHIVIO</a>
+        <a href="info.html" class="btn n4">INFO / GUIDA</a>
+    </div>
+
+</body>
+
+</html>
