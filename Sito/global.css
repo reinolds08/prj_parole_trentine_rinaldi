@@ -242,4 +242,74 @@ footer {
     min-height: 100px;
 }
 
+/* --- INTEGRAZIONE FILTRO E BOTTONE --- */
+.filter-select {
+    margin-left: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+}
+
+.search-btn {
+    margin-left: 10px;
+    padding: 10px 20px;
+    background-color: white;
+    color: #CB0E2C;
+    border: none;
+    border-radius: 5px;
+    font-family: Impact, sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.search-btn:hover {
+    transform: scale(1.05);
+    background-color: #f0f0f0;
+}
+
+/* --- TABELLA RISULTATI --- */
+.results-section {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#resultsTable {
+    width: 90%;
+    border-collapse: collapse;
+    margin-bottom: 50px;
+}
+
+#resultsTable th {
+    background-color: #CB0E2C;
+    color: white;
+    padding: 15px;
+    font-family: Impact, sans-serif;
+    letter-spacing: 1px;
+}
+
+#resultsTable td {
+    padding: 15px;
+    border-bottom: 2px solid #CB0E2C;
+    text-align: left;
+}
+
+#resultsTable tr:hover {
+    background-color: #fffafa;
+}
+
+.hidden {
+    display: none;
+}
+
+#noResults {
+    font-weight: bold;
+    color: #CB0E2C;
+    margin-top: 20px;
+}
+
 

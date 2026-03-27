@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="global.css">
 
 </head>
+
 <body>
 
     <header>
@@ -25,15 +27,35 @@
 
     <main class="content">
         <h1 class="ricercaTit">Ricerca nell'archivio</h1>
-       
+        
         <div class="search-container">
             <div class="search-box">
-                <input type="text" placeholder="inserisci parola">
-                <div class="search-icons">
-                    <span class="icon-filter"></span> <span class="icon-search"></span>
-                </div>
+                <input type="text" id="searchInput" placeholder="inserisci parola" onkeyup="handleKeyPress(event)">
+                
+                <select id="topicFilter" class="filter-select">
+                    <option value="">Tutti gli argomenti</option>
+                    <option value="cucina">Cucina</option>
+                    <option value="natura">Natura</option>
+                    <option value="mestieri">Mestieri</option>
+                </select>
+    
+                <button onclick="dbSearch()" class="search-btn">CERCA</button>
             </div>
         </div>
+    
+        <section class="results-section">
+            <table id="resultsTable" class="hidden">
+                <thead>
+                    <tr>
+                        <th>Termine</th>
+                        <th>Argomento</th>
+                        <th>Definizione</th>
+                    </tr>
+                </thead>
+                <tbody id="resultsBody"></tbody>
+            </table>
+            <div id="noResults" class="hidden">Nessun termine trovato nell'archivio.</div>
+        </section>
     </main>
 
 
@@ -43,21 +65,21 @@
         <div class="footer-logo">
             <img src="Immages/Trentino_CoA.svg" alt="Stemma Parole Trentine" width="70">
         </div>
-   
+
         <div class="div-footer">
             <h4>DIRITTI E COPYRIGHT</h4>
             <p>© 2026 <strong>Parole Trentine</strong>.</p>
             <p>All Rights Reserved.</p>
             <p>Progetto di valorizzazione linguistica locale.</p>
         </div>
-   
+
         <div class="div-footer">
             <h4>CONTATTI:</h4>
             <p>e-mail: <a href="mailto:esempio@mail.it" class="sk">esempio@mail.it</a></p>
             <p>Tel: +39 000 00000 000</p>
             <p>Social: <a href="#" class="sk">@instagram.username</a></p>
         </div>
-   
+
         <div class="div-footer">
             <h4>PAGINE:</h4>
             <ul>
@@ -68,14 +90,59 @@
         </div>
     </footer>
 
+    <script>
+        // Database simulato
+        const databaseParole = [
+            { termine: "Canederli", argomento: "cucina", def: "Gnocchi di pane raffermo, latte e uova." },
+            { termine: "Malghese", argomento: "mestieri", def: "Chi gestisce o lavora in una malga." },
+            { termine: "Larice", argomento: "natura", def: "Albero aghifoglie tipico delle Alpi." },
+            { termine: "Strudel", argomento: "cucina", def: "Dolce di pasta arrotolata con mele." }
+        ];
+
+        function handleKeyPress(e) {
+            if (e.key === "Enter") dbSearch();
+        }
+
+        function dbSearch() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const filter = document.getElementById('topicFilter').value;
+            const table = document.getElementById('resultsTable');
+            const body = document.getElementById('resultsBody');
+            const noResults = document.getElementById('noResults');
+
+            // Svuota la tabella precedente
+            body.innerHTML = "";
+
+            // Filtra i dati (Simulazione query database)
+            const risultati = databaseParole.filter(item => {
+                const matchTesto = item.termine.toLowerCase().includes(input);
+                const matchFiltro = filter === "" || item.argomento === filter;
+                return matchTesto && matchFiltro;
+            });
+
+            // Mostra risultati
+            if (risultati.length > 0 && input !== "") {
+                table.classList.remove('hidden');
+                noResults.classList.add('hidden');
+
+                risultati.forEach(res => {
+                    const riga = `<tr>
+                <td><strong>${res.termine}</strong></td>
+                <td>${res.argomento.toUpperCase()}</td>
+                <td>${res.def}</td>
+            </tr>`;
+                    body.innerHTML += riga;
+                });
+            } else {
+                table.classList.add('hidden');
+                if (input !== "") noResults.classList.remove('hidden');
+            }
+        }
+    </script>
+
 
 
 
 </body>
+
 </html>
-
-
-
-
-
-
