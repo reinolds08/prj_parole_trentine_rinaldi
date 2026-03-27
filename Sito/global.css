@@ -159,3 +159,85 @@ footer {
         width: 100%;
     }
 }
+
+
+
+/*      !!!!!<< PARTE PER SUGGERIMENTO MODIFICA >>!!!!!     */
+#box_input{
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+    border: 2px solid; 
+    border-radius: 10px; 
+    width: 300px; 
+    padding: 20px; 
+    margin: 0 auto;
+}
+#box_input p{
+    font-weight: bold;
+}
+#box_input input{
+    border: 2px solid;
+    border-radius: 15px;
+    padding: 10px;
+}
+#box_input input:focus {
+    outline: none;
+    border-color: #e30613;
+    transform: scale(1.05);
+    box-shadow: 0 0 8px #e30613;
+}
+#box_input input[type="file"]{
+    cursor: pointer;
+}
+#box_input button{
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 20px;
+}
+#box_input button:hover{
+    transform: scale(1.125);
+    cursor: pointer;
+}
+
+
+
+/*      !!!!!<< PARTE RICERCA >>!!!!!     */
+.ricercaTit {
+    font-size: 2.5cm; /* Circa 2cm come richiesto */
+    margin-bottom: 50px;
+    font-weight: normal;
+    word-spacing: 0.25cm;
+}
+/* Search Box - Colore #CB0E2C */
+.search-container {
+    display: flex;
+    justify-content: center;  
+    height: 100px;
+}
+.search-box {
+    background-color: #CB0E2C;
+    padding: 12px 12px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+}
+.search-box input {
+    flex: 1;
+    padding: 24px 19px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+    outline: none;
+}
+.search-icons {
+    margin-left: 5px;
+    color: white;
+    font-size: 1.2rem;
+    min-height: 100px;
+}
+
+
