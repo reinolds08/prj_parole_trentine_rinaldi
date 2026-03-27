@@ -29,6 +29,7 @@ hr{
 h1, h2, h3, h4, nav ul li {
     font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
     text-transform: uppercase;
+    text-align: center;
 }
 
 
@@ -209,6 +210,7 @@ footer {
     margin-bottom: 50px;
     font-weight: normal;
     word-spacing: 0.25cm;
+    text-align: center;
 }
 /* Search Box - Colore #CB0E2C */
 .search-container {
