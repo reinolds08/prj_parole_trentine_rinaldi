@@ -163,6 +163,15 @@ article img {
     color: #CB0E2C;
 }
 
+section div p{
+    overflow-y: auto;
+    max-height: 400px;
+}
+section div{
+    border: 2px solid;
+    padding: 20px;
+    margin: 20px;
+}
 
 /*          FOOTER          */
 footer {
@@ -294,6 +303,9 @@ footer {
 #box_input button:hover{
     transform: scale(1.125);
     cursor: pointer;
+}
+#temp_js{
+    border: none;
 }
 
 
