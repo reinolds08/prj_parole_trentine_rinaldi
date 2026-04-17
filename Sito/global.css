@@ -34,45 +34,69 @@ h1, h2, h3, h4, nav ul li {
 
 
 /*          HEADER          */
+/* Importa il font in cima al file CSS */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 header {
     background-color: #CB0E2C;
-    /* Red */
-    color: white;
-    padding: 10px 20px;
+    padding: 10px 5%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Spinge il nav a sinistra e i loghi a destra */
     align-items: center;
     border-bottom: 5px solid #fff;
 }
-nav{
-    font-weight: 100;
+
+.header-logos {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Spazio tra un logo e l'altro */
 }
+
+.header-logos img {
+    height: 50px; /* Altezza uniforme per tutti i loghi */
+    width: auto;  /* Mantiene le proporzioni originali */
+    display: block;
+}
+
 nav ul {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 35px; /* Più spazio tra i link */
+    margin: 0;
+    padding: 0;
 }
-nav li {
-    padding: 5px;
-}
-nav ul li {
-    font-size: 1.2rem;
-    font-weight: bold;
-    cursor: pointer;
-    font-weight: 100;
-}
+
 nav ul li a {
     text-decoration: none;
     color: white;
+    font-family: 'Bebas Neue', sans-serif; /* Font moderno e pulito */
+    font-size: 1.5rem;
+    letter-spacing: 1.5px;
+    transition: all 0.3s ease;
+    display: block;
+    line-height: 40px; /* Centra il testo verticalmente */
 }
-nav ul li.active {
-    border-bottom: 2px solid #fff;
+
+/* Effetto Hover e Pagina Attiva */
+nav ul li.active a {
+    border-bottom: 4px solid white;
 }
-li:hover {
-    text-shadow: #5f0917 2px 2px 4px;
-    padding: 2px;
-    padding-left: 5px;
-    padding-right: 5px;
+
+nav ul li a:hover {
+    color: #f0f0f0;
+    transform: translateY(-2px); /* Leggero movimento verso l'alto */
+}
+
+/* Sistemazione Logo/Stemma */
+header img {
+    height: 60px; /* Altezza proporzionata all'header */
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+header img:hover {
+    transform: scale(1.1);
 }
 
 
@@ -88,6 +112,38 @@ section {
     margin: 0 auto;
 }
 
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.team-grid article {
+    background-color: #fff;
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+.team-grid article img {
+    width: 100%;
+    border-radius: 16px;
+    object-fit: cover;
+    margin-bottom: 16px;
+}
+
+.team-grid article h3 {
+    margin: 0 0 10px;
+}
+
+.team-grid article p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #333;
+}
+
 article {
     padding: 10px;
     text-align: center;
@@ -99,6 +155,12 @@ article img {
     margin-bottom: 15px;
     object-fit: cover;
     aspect-ratio: 3/4;
+}
+
+/*          COLLABORATORI          */
+.collaboratore {
+    font-weight: bold;
+    color: #CB0E2C;
 }
 
 section div p{
@@ -300,7 +362,7 @@ footer {
     background-color: #CB0E2C;
     color: white;
     padding: 15px;
-    font-family: Impact, sans-serif;
+    font-family: 'Anton', sans-serif;
     letter-spacing: 1px;
 }
 
@@ -401,13 +463,14 @@ footer {
     display: inline-block;
     background: #CB0E2C;
     color: white;
-    font-family: Impact, sans-serif;
-    font-size: 0.8rem;
+    font-family: 'Anton', sans-serif;
+    font-size: 1.4rem;
     letter-spacing: 1px;
     padding: 2px 10px;
     border-radius: 20px;
     margin-bottom: 14px;
 }
+
 .wod-divider {
     margin: 12px 0 14px 0;
 }
