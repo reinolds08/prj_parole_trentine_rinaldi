@@ -1,7 +1,5 @@
 
-    /* =============================================
-       DATABASE SIMULATO — con traduzione e categoria
-    ============================================= */
+
     const databaseParole = [
         { termine: "Canederli",  traduzione: "gnocchi di pane",  categoria: "sm",  argomento: "cucina",    def: "Gnocchi di pane raffermo, latte e uova, tipici del Trentino." },
         { termine: "Malghese",   traduzione: "malgaro",          categoria: "sm",  argomento: "mestieri",  def: "Chi gestisce o lavora in una malga, alpeggio d'alta quota." },
@@ -17,7 +15,7 @@
         { termine: "Sgrafoun",   traduzione: "graffiare",        categoria: "vb",  argomento: "comune",    def: "Graffiare, scalfire una superficie; anche usato per lamentarsi." },
     ];
 
-    /* Tag cloud simulata: termine + livello popolarità (1–3) */
+ 
     const parolePopolari = [
         { termine: "Canederli", pop: 3 },
         { termine: "Strudel",   pop: 3 },
@@ -30,9 +28,7 @@
         { termine: "Ramin",     pop: 1 },
     ];
 
-    /* =============================================
-       RICERCA BIDIREZIONALE + FILTRO GRAMMATICALE
-    ============================================= */
+
     function handleKeyPress(e) {
         if (e.key === "Enter") dbSearch();
     }
@@ -75,9 +71,7 @@
         }
     }
 
-    /* =============================================
-       INDICE ALFABETICO
-    ============================================= */
+
     function buildAlphabetIndex() {
         const grid = document.getElementById('alphabetGrid');
         const lettere = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
@@ -123,10 +117,7 @@
         }
     }
 
-    /* =============================================
-       PAROLA DEL GIORNO
-       (cambia ogni 24h usando la data come seed)
-    ============================================= */
+
     function buildWordOfDay() {
         const oggi  = new Date();
         const seed  = oggi.getFullYear() * 10000 + (oggi.getMonth()+1) * 100 + oggi.getDate();
@@ -139,9 +130,7 @@
         document.getElementById('wodDef').textContent        = wod.def;
     }
 
-    /* =============================================
-       STATISTICHE
-    ============================================= */
+
     function buildStats() {
         const totale = databaseParole.length;
         const categorie = ['sm','sf','np','vb','avv'];
@@ -149,7 +138,7 @@
 
         const grid = document.getElementById('statsGrid');
 
-        // Totale lemmi (occupa tutta la larghezza)
+
         grid.innerHTML = `<div class="stat-item" style="grid-column:1/-1">
             <div class="stat-num">${totale}</div>
             <div class="stat-label">Totale Lemmi</div>
@@ -164,12 +153,9 @@
         });
     }
 
-    /* =============================================
-       TAG CLOUD
-    ============================================= */
     function buildTagCloud() {
         const cloud = document.getElementById('tagCloud');
-        // Mescola per varietà visiva
+     
         const shuffled = [...parolePopolari].sort(() => Math.random() - 0.5);
         shuffled.forEach(item => {
             const tag = document.createElement('span');
@@ -184,9 +170,7 @@
         });
     }
 
-    /* =============================================
-       INIT
-    ============================================= */
+
     buildAlphabetIndex();
     buildWordOfDay();
     buildStats();

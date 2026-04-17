@@ -12,6 +12,7 @@
 <body>
 
     <header>
+        <img src="Immages/Trentino_CoA.svg" alt="Stemma" width="50">
         <nav>
             <ul>
                 <li class="active"><a href="home.html">HOME</a></li>
@@ -19,7 +20,6 @@
                 <li><a href="chisiamo.html">CHI SIAMO</a></li>
             </ul>
         </nav>
-        <img src="Immages/Trentino_CoA.svg" alt="Stemma" width="50">
     </header>
 
 
@@ -28,7 +28,6 @@
     <main class="content">
         <h1 class="ricercaTit">Ricerca nell'archivio</h1>
     
-        <!-- BARRA DI RICERCA -->
         <div class="search-container">
             <div class="search-box">
                 <input type="text" id="searchInput" placeholder="inserisci parola o traduzione" onkeyup="handleKeyPress(event)">
@@ -46,12 +45,12 @@
             </div>
         </div>
     
-        <!-- INDICE ALFABETICO -->
+       
         <div class="alphabet-index">
             <div class="alphabet-grid" id="alphabetGrid"></div>
         </div>
     
-        <!-- RISULTATI -->
+        
         <section class="results-section">
             <table id="resultsTable" class="hidden">
                 <thead>
@@ -68,10 +67,10 @@
             <div id="noResults" class="hidden">Nessun termine trovato nell'archivio.</div>
         </section>
     
-        <!-- SEZIONI DINAMICHE -->
+       
         <div class="dynamic-sections">
     
-            <!-- PAROLA DEL GIORNO -->
+            
             <div class="dynamic-card word-of-day">
                 <div class="card-label">✦ Parola del Giorno</div>
                 <div class="wod-termine" id="wodTermine">—</div>
@@ -81,7 +80,7 @@
                 <div class="wod-def" id="wodDef"></div>
             </div>
     
-            <!-- STATISTICHE -->
+           
             <div class="dynamic-card stats-card">
                 <div class="card-label">✦ I Numeri del Dizionario</div>
                 <div class="stats-grid" id="statsGrid"></div>
@@ -89,7 +88,7 @@
     
         </div>
     
-        <!-- TAG CLOUD -->
+   
         <section class="popular-section">
             <div class="card-label card-label-dark">✦ Le Parole più Cercate</div>
             <div class="tag-cloud" id="tagCloud"></div>

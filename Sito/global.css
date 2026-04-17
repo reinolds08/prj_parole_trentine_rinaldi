@@ -288,7 +288,7 @@ footer {
     background-color: #CB0E2C;
     color: white;
     padding: 15px;
-    font-family: Impact, sans-serif;
+    font-family: 'Anton', sans-serif;
     letter-spacing: 1px;
 }
 
@@ -389,13 +389,14 @@ footer {
     display: inline-block;
     background: #CB0E2C;
     color: white;
-    font-family: Impact, sans-serif;
-    font-size: 0.8rem;
+    font-family: 'Anton', sans-serif;
+    font-size: 1.4rem;
     letter-spacing: 1px;
     padding: 2px 10px;
     border-radius: 20px;
     margin-bottom: 14px;
 }
+
 .wod-divider {
     margin: 12px 0 14px 0;
 }
