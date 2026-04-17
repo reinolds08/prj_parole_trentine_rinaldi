@@ -27,27 +27,38 @@
 
     <main class="content">
         <h1 class="ricercaTit">Ricerca nell'archivio</h1>
-        
+    
+        <!-- BARRA DI RICERCA -->
         <div class="search-container">
             <div class="search-box">
-                <input type="text" id="searchInput" placeholder="inserisci parola" onkeyup="handleKeyPress(event)">
-                
-                <select id="topicFilter" class="filter-select">
-                    <option value="">Tutti gli argomenti</option>
-                    <option value="cucina">Cucina</option>
-                    <option value="natura">Natura</option>
-                    <option value="mestieri">Mestieri</option>
+                <input type="text" id="searchInput" placeholder="inserisci parola o traduzione" onkeyup="handleKeyPress(event)">
+    
+                <select id="grammarFilter" class="filter-select">
+                    <option value="">Tutte le categorie</option>
+                    <option value="sm">Nome maschile (sm)</option>
+                    <option value="sf">Nome femminile (sf)</option>
+                    <option value="np">Nome proprio (np)</option>
+                    <option value="vb">Verbo (vb)</option>
+                    <option value="avv">Avverbio (avv)</option>
                 </select>
     
                 <button onclick="dbSearch()" class="search-btn">CERCA</button>
             </div>
         </div>
     
+        <!-- INDICE ALFABETICO -->
+        <div class="alphabet-index">
+            <div class="alphabet-grid" id="alphabetGrid"></div>
+        </div>
+    
+        <!-- RISULTATI -->
         <section class="results-section">
             <table id="resultsTable" class="hidden">
                 <thead>
                     <tr>
                         <th>Termine</th>
+                        <th>Traduzione</th>
+                        <th>Categoria</th>
                         <th>Argomento</th>
                         <th>Definizione</th>
                     </tr>
@@ -56,6 +67,34 @@
             </table>
             <div id="noResults" class="hidden">Nessun termine trovato nell'archivio.</div>
         </section>
+    
+        <!-- SEZIONI DINAMICHE -->
+        <div class="dynamic-sections">
+    
+            <!-- PAROLA DEL GIORNO -->
+            <div class="dynamic-card word-of-day">
+                <div class="card-label">✦ Parola del Giorno</div>
+                <div class="wod-termine" id="wodTermine">—</div>
+                <div class="wod-traduzione" id="wodTraduzione"></div>
+                <div class="wod-categoria" id="wodCategoria"></div>
+                <hr class="wod-divider">
+                <div class="wod-def" id="wodDef"></div>
+            </div>
+    
+            <!-- STATISTICHE -->
+            <div class="dynamic-card stats-card">
+                <div class="card-label">✦ I Numeri del Dizionario</div>
+                <div class="stats-grid" id="statsGrid"></div>
+            </div>
+    
+        </div>
+    
+        <!-- TAG CLOUD -->
+        <section class="popular-section">
+            <div class="card-label card-label-dark">✦ Le Parole più Cercate</div>
+            <div class="tag-cloud" id="tagCloud"></div>
+        </section>
+    
     </main>
 
 
@@ -90,55 +129,7 @@
         </div>
     </footer>
 
-    <script>
-        // Database simulato
-        const databaseParole = [
-            { termine: "Canederli", argomento: "cucina", def: "Gnocchi di pane raffermo, latte e uova." },
-            { termine: "Malghese", argomento: "mestieri", def: "Chi gestisce o lavora in una malga." },
-            { termine: "Larice", argomento: "natura", def: "Albero aghifoglie tipico delle Alpi." },
-            { termine: "Strudel", argomento: "cucina", def: "Dolce di pasta arrotolata con mele." }
-        ];
-
-        function handleKeyPress(e) {
-            if (e.key === "Enter") dbSearch();
-        }
-
-        function dbSearch() {
-            const input = document.getElementById('searchInput').value.toLowerCase();
-            const filter = document.getElementById('topicFilter').value;
-            const table = document.getElementById('resultsTable');
-            const body = document.getElementById('resultsBody');
-            const noResults = document.getElementById('noResults');
-
-            // Svuota la tabella precedente
-            body.innerHTML = "";
-
-            // Filtra i dati (Simulazione query database)
-            const risultati = databaseParole.filter(item => {
-                const matchTesto = item.termine.toLowerCase().includes(input);
-                const matchFiltro = filter === "" || item.argomento === filter;
-                return matchTesto && matchFiltro;
-            });
-
-            // Mostra risultati
-            if (risultati.length > 0 && input !== "") {
-                table.classList.remove('hidden');
-                noResults.classList.add('hidden');
-
-                risultati.forEach(res => {
-                    const riga = `<tr>
-                <td><strong>${res.termine}</strong></td>
-                <td>${res.argomento.toUpperCase()}</td>
-                <td>${res.def}</td>
-            </tr>`;
-                    body.innerHTML += riga;
-                });
-            } else {
-                table.classList.add('hidden');
-                if (input !== "") noResults.classList.remove('hidden');
-            }
-        }
-    </script>
+    <script src="script.js"></script>
 
 
 
