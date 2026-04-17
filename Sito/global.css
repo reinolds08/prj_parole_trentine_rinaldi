@@ -177,48 +177,80 @@ section div{
 footer {
     background-color: #CB0E2C;
     color: white;
-    padding: 40px 10%;
+    padding: 40px 5%; /* Leggermente più spazio verticale */
+    border-top: 5px solid #fff;
+    margin-top: 50px;
+}
+
+.footer-container {
+    max-width: 1300px; /* Più largo per ospitare testi più grandi */
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    flex-wrap: wrap; 
-    gap: 30px;
-    margin-top: 40px;
+    flex-wrap: wrap;
+    gap: 40px;
 }
-.footer-logo img {
-    display: block;
-}
-.div-footer {
+
+.footer-section {
     flex: 1;
-    min-width: 200px; 
+    min-width: 220px;
 }
-.div-footer h4 {
-    font-size: 1rem;
-    font-weight: 100;
-    margin-bottom: 20px;
-    text-transform: uppercase;
+
+.footer-section h4 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.3rem; /* Titoli più grandi (prima 1.1) */
+    margin-bottom: 18px;
+    letter-spacing: 1.2px;
 }
-.div-footer p, 
-.div-footer ul {
-    font-size: 0.9rem;
+
+.footer-section p, 
+.footer-section a {
+    font-size: 1rem; /* Testo corpo più grande (prima 0.85) */
     line-height: 1.6;
-    margin-bottom: 10px;
+    color: white;
+    text-decoration: none;
 }
-.div-footer ul {
+
+.footer-links {
     list-style: none;
     padding: 0;
 }
-.div-footer a.sk, 
-.div-footer a {
-    color: white;
-    text-decoration: none;
-    transition: all 0.3s ease;
+
+.footer-links li {
+    margin-bottom: 8px;
 }
-.div-footer a.sk:hover, 
-.div-footer li:hover {
-    opacity: 0.8;
-    padding-left: 5px; 
+
+/* --- LOGHI PIÙ GRANDI --- */
+.logos-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
+
+.logos-row {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    align-items: center;
+}
+
+.logos-row img {
+    height: 45px; /* Loghi partner più grandi (prima 35px) */
+    width: auto;
+}
+
+.stemma-footer {
+    height: 70px !important; /* Stemma principale più grande (prima 50px) */
+    width: auto;
+}
+
+.footer-section a:hover {
+    text-decoration: underline;
+    opacity: 0.9;
+}
+
+
 /* --- RESPONSIVITÀ MOBILE --- */
 @media (max-width: 768px) {
     footer {
