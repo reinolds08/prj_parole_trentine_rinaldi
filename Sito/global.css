@@ -408,25 +408,70 @@ footer {
 /* Search Box - Colore #CB0E2C */
 .search-container {
     display: flex;
-    justify-content: center;  
-    height: 100px;
+    flex-direction: column;
+    align-items: center; /* Mantiene il blocco centrale nella pagina */
+    width: 100%;
 }
+
+/* --- BARRA ROSSA --- */
 .search-box {
     background-color: #CB0E2C;
-    padding: 12px 12px;
+    padding: 20px 30px;      /* Spazio interno uniforme */
     border-radius: 20px;
     display: flex;
-    align-items: center;
+    align-items: stretch;    /* Forza tutti gli elementi ad avere la stessa altezza */
+    gap: 15px;               /* Spazio uniforme tra i componenti */
     width: 100%;
-    max-width: 800px;
+    max-width: 950px;
 }
+
+/* --- INPUT DI TESTO --- */
 .search-box input {
-    flex: 1;
-    padding: 24px 19px;
-    border-radius: 5px;
+    flex: 2;                 /* Prende più spazio degli altri */
+    padding: 15px 20px;      /* Padding ridotto per proporzione */
+    border-radius: 10px;
     border: none;
-    font-size: 1rem;
+    font-size: 1.2rem;
     outline: none;
+}
+
+/* --- CONTENITORE SWITCH --- */
+.switch-container {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: 950px;
+    margin-top: 10px;
+}
+
+/* --- BOTTONE SWITCH (UGUALE AL BOX SOPRA) --- */
+/* --- BOTTONE SWITCH BASE (DIALETTO -> ITALIANO) --- */
+.switch-btn {
+    padding: 12px 25px;
+    background-color: white;  /* Sfondo Bianco */
+    color: #CB0E2C;           /* Testo Rosso */
+    border: 2px solid #CB0E2C;
+    border-radius: 10px;
+    font-family: 'Impact', sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-left: 30px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* --- STATO ATTIVO (ITALIANO -> DIALETTO) --- */
+/* Quando clicchi, i colori si invertono: diventa rosso con testo bianco */
+.switch-btn.ita-mode {
+    background-color: #CB0E2C; /* Sfondo Rosso */
+    color: white;              /* Testo Bianco */
+    border: 2px solid #CB0E2C;
+}
+
+/* --- EFFETTO HOVER --- */
+.switch-btn:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 8px rgba(203, 14, 44, 0.2);
 }
 .search-icons {
     margin-left: 5px;
@@ -437,25 +482,30 @@ footer {
 
 /* --- INTEGRAZIONE FILTRO E BOTTONE --- */
 .filter-select {
-    margin-left: 10px;
-    padding: 10px;
-    border-radius: 5px;
+    flex: 0.8;               /* Larghezza proporzionata */
+    padding: 0 15px;         /* Padding laterale */
+    border-radius: 10px;
     border: none;
     font-family: Arial, sans-serif;
+    font-size: 1rem;
     cursor: pointer;
+    background-color: white; /* Assicurati che lo sfondo sia bianco */
 }
 
 .search-btn {
-    margin-left: 10px;
-    padding: 10px 20px;
+    flex: 0.5;
+    padding: 0 25px;
     background-color: white;
     color: #CB0E2C;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     font-family: Impact, sans-serif;
-    font-size: 1rem;
+    font-size: 1.1rem;
     cursor: pointer;
-    transition: transform 0.2s;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .search-btn:hover {
@@ -506,36 +556,57 @@ footer {
 }
 
 /* ---- INDICE ALFABETICO ---- */
+/* ---- INDICE ALFABETICO ---- */
 .alphabet-index {
     margin: 40px auto 10px auto;
-    max-width: 900px;
-    padding: 0 20px;
+    width: 100%; /* Occupa tutto lo spazio per permettere una riga lunga */
+    padding: 0 10px;
+    overflow-x: auto; /* Se lo schermo è troppo stretto (es. cellulare), permette lo scroll invece di rompere il layout */
 }
+
 .alphabet-grid {
     display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
+    flex-wrap: nowrap; /* CRUCIALE: Forza tutte le lettere su una sola riga */
+    gap: 4px;          /* Ridotto leggermente per farle stare meglio */
     justify-content: center;
+    min-width: max-content; /* Assicura che i bottoni non si schiaccino */
 }
+
 .alpha-btn {
-    width: 36px;
-    height: 36px;
-    border: 2px solid #CB0E2C;
-    background: white;
-    color: #CB0E2C;
+    /* Aumentiamo le dimensioni */
+    width: 42px;         /* Da 32px a 42px */
+    height: 42px;        /* Da 36px a 42px */
+    
+    /* Font e stile */
+    font-size: 1.4rem;   /* Testo più grande e leggibile */
     font-family: Impact, sans-serif;
-    font-size: 1rem;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.15s;
+    
+    /* Layout interno */
+    flex: 0 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
+    
+    /* Bordi e colori */
+    border: 2px solid #CB0E2C;
+    background: white;
+    color: #CB0E2C;
+    border-radius: 8px;  /* Arrotondamento leggermente più accentuato */
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
 }
-.alpha-btn:hover, .alpha-btn.active {
+
+/* Effetto al passaggio del mouse leggermente più dinamico */
+.alpha-btn:hover {
     background: #CB0E2C;
     color: white;
-    transform: scale(1.1);
+    transform: translateY(-3px); /* Effetto "salto" verso l'alto */
+    box-shadow: 0 4px 8px rgba(203, 14, 44, 0.3);
+}
+
+.alpha-btn.active {
+    background: #CB0E2C;
+    color: white;
 }
 
 /* ---- SEZIONI DINAMICHE ---- */
@@ -642,6 +713,8 @@ footer {
     align-items: center;
 }
 .tag-word {
+    display: inline-block; /* Assicura che le dimensioni del blocco vengano rispettate */
+    padding: 6px 15px;     /* Padding di base se manca la classe pop */
     background: white;
     border: 2px solid #CB0E2C;
     color: #CB0E2C;
