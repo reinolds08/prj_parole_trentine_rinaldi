@@ -9,7 +9,7 @@ const databaseParole = [
     { termine: "Gat", traduzione: "gatto", categoria: "sm", argomento: "animali", def: "Piccolo felino domestico." },
     { termine: "Vardàr", traduzione: "guardare", categoria: "vb", argomento: "comune", def: "Osservare con attenzione." },
     { termine: "Bel", traduzione: "bello", categoria: "agg", argomento: "aggettivi", def: "Piacevole alla vista." },
-    { termine: "Fogo", traduzione: "fuoco", categoria: "sm", argomento: "natura", def: "Produzione di calore e luce da combustione." },
+    { termine: "Fogo", traduzione: "fuoco", categoria: "sm", argomento: "nature", def: "Produzione di calore e luce da combustione." },
     { termine: "Zucher", traduzione: "zucchero", categoria: "sm", argomento: "cucina", def: "Sostanza dolce usata per gli alimenti." },
     { termine: "Anel", traduzione: "anello", categoria: "sm", argomento: "oggetti", def: "Cerchio di metallo prezioso da portare al dito." }
 ];
@@ -42,7 +42,6 @@ function buildAlphabetIndex() {
         
         btn.onclick = () => {
             const inArchivio = window.location.pathname.includes("archivio.html");
-            // Se sono in archivio resto lì, se sono in index vado in Pagine/archivio.html
             const targetUrl = inArchivio ? `archivio.html?lettera=${lettera}` : `Pagine/archivio.html?lettera=${lettera}`;
             window.location.href = targetUrl;
         };
@@ -52,9 +51,13 @@ function buildAlphabetIndex() {
 
 // --- MOTORE DI RICERCA ---
 function dbSearch() {
-    // Quando scrivo nella barra, resetto la selezione dell'alfabeto
     ultimaLetteraSelezionata = ""; 
     document.querySelectorAll('.alpha-btn').forEach(b => b.classList.remove('active'));
+    
+    // Nascondi il filtro categoria se si usa la ricerca testuale libera
+    const filterContainer = document.getElementById('filterContainer');
+    if (filterContainer) filterContainer.classList.add('hidden');
+    
     eseguiRicercaFiltrata(true);
 }
 
@@ -63,6 +66,7 @@ function eseguiRicercaFiltrata(isTextSearch = false) {
     const input = inputEl ? inputEl.value.toLowerCase().trim() : "";
     
     const filterEl = document.getElementById('grammarFilter');
+    const filterContainer = document.getElementById('filterContainer');
     const catFilter = filterEl ? filterEl.value : "";
     
     const table = document.getElementById('resultsTable');
@@ -72,16 +76,19 @@ function eseguiRicercaFiltrata(isTextSearch = false) {
     if (!body) return;
     body.innerHTML = "";
 
+    // MOSTRA IL FILTRO solo se c'è una lettera selezionata
+    if (ultimaLetteraSelezionata !== "" && filterContainer) {
+        filterContainer.classList.remove('hidden');
+    }
+
     const risultati = databaseParole.filter(item => {
         let matchTesto = false;
         
         if (isTextSearch && input !== "") {
-            // Modalità Traduttore (Ricerca libera)
             matchTesto = (searchDirection === 'dial-ita') ? 
                 item.termine.toLowerCase().includes(input) : 
                 item.traduzione.toLowerCase().includes(input);
         } else if (ultimaLetteraSelezionata !== "") {
-            // Modalità Archivio (Per lettera)
             matchTesto = item.termine.toUpperCase().startsWith(ultimaLetteraSelezionata);
         }
         
@@ -96,14 +103,13 @@ function eseguiRicercaFiltrata(isTextSearch = false) {
             body.innerHTML += `<tr>
                 <td><strong>${res.termine}</strong></td>
                 <td><em>${res.traduzione}</em></td>
-                <td><span class="wod-categoria" style="padding:2px 8px; border-radius:4px; background:#c00; color:#fff;">${res.categoria}</span></td>
+                <td><span class="wod-categoria">${res.categoria}</span></td>
                 <td>${res.argomento.toUpperCase()}</td>
                 <td>${res.def}</td>
             </tr>`;
         });
     } else {
         table.classList.add('hidden');
-        // Mostriamo "nessun risultato" solo se l'utente ha effettivamente cercato qualcosa
         if (input !== "" || ultimaLetteraSelezionata !== "") {
             noRes.classList.remove('hidden');
         }
@@ -150,27 +156,34 @@ function buildTagCloud() {
 }
 
 function handleKeyPress(e) { 
-    if(e.key === "Enter") dbSearch(); 
-    else dbSearch(); // Ricerca istantanea mentre scrivi
+    dbSearch(); // Ricerca istantanea
 }
 
 // --- AVVIO APPLICAZIONE ---
 window.onload = () => {
-    // 1. Controlla se c'è una lettera nell'URL (per la pagina archivio)
     const urlParams = new URLSearchParams(window.location.search);
     const letteraUrl = urlParams.get('lettera');
     
     if (letteraUrl) {
         ultimaLetteraSelezionata = letteraUrl.toUpperCase();
+        // Mostra il contenitore se arriviamo già con una lettera (es. da Home)
+        const filterContainer = document.getElementById('filterContainer');
+        if (filterContainer) filterContainer.classList.remove('hidden');
     }
 
-    // 2. Inizializza i componenti comuni
+    // Inizializzazione componenti
     buildAlphabetIndex();
     buildWordOfDay();
     buildStats();
     buildTagCloud();
 
-    // 3. Se siamo in archivio e abbiamo una lettera, esegui subito la ricerca
+    // Evento al cambio della categoria
+    const filterEl = document.getElementById('grammarFilter');
+    if (filterEl) {
+        filterEl.onchange = () => eseguiRicercaFiltrata(false);
+    }
+
+    // Esecuzione ricerca iniziale se in archivio
     if (window.location.pathname.includes("archivio.html") && ultimaLetteraSelezionata) {
         eseguiRicercaFiltrata(false);
     }

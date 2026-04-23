@@ -26,28 +26,46 @@
         </div>
     </header>
 
-<main class="content">
-    <h1 class="ricercaTit">Archivio Completo</h1>
+    <main class="content">
+        <h1 class="ricercaTit">Archivio Completo</h1>
 
-    <div class="alphabet-index">
-        <div class="alphabet-grid" id="alphabetGrid"></div>
-    </div>
+        <div class="alphabet-index">
+            <div class="alphabet-grid" id="alphabetGrid"></div>
+        </div>
 
-    <section class="results-section">
-        <table id="resultsTable" class="hidden">
-            <thead>
-                <tr>
-                    <th>Termine</th>
-                    <th>Traduzione</th>
-                    <th>Categoria</th>
-                    <th>Argomento</th> <th>Definizione</th>
-                </tr>
-            </thead>
-            <tbody id="resultsBody"></tbody>
-        </table>
-        <div id="noResults" class="hidden">Seleziona una lettera per vedere i termini.</div>
-    </section>
-</main>
+        <section class="results-section">
+            <div id="filterContainer" class="filter-wrapper hidden" style="margin-bottom: 20px; text-align: center;">
+                <label for="grammarFilter"><strong>Filtra per categoria:</strong> </label>
+                <select id="grammarFilter" class="custom-select">
+                    <option value="">Tutte le categorie</option>
+                    <option value="sm">Nome maschile (sm)</option>
+                    <option value="sf">Nome femminile (sf)</option>
+                    <option value="np">Nome proprio (np)</option>
+                    <option value="vb">Verbo (vb)</option>
+                    <option value="avv">Avverbio (avv)</option>
+                </select>
+            </div>
+
+            <table id="resultsTable" class="hidden">
+                <thead>
+                    <tr>
+                        <th>Termine</th>
+                        <th>Traduzione</th>
+                        <th>Categoria</th>
+                        <th>Argomento</th>
+                        <th>Definizione</th>
+                    </tr>
+                </thead>
+                <tbody id="resultsBody"></tbody>
+            </table>
+
+            <div id="noResults" class="hidden">
+                <p style="text-align: center; margin-top: 20px;">
+                    Nessun termine trovato per i criteri selezionati.
+                </p>
+            </div>
+        </section>
+    </main>
 
     <footer>
         <div class="footer-container">

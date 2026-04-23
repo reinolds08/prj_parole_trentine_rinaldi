@@ -514,35 +514,48 @@ footer {
 }
 
 /* --- TABELLA RISULTATI --- */
+/* --- TABELLA RISULTATI AGGIORNATA --- */
 .results-section {
-    margin-top: 50px;
+    margin-top: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 
 #resultsTable {
-    width: 90%;
-    border-collapse: collapse;
+    width: 95%;
+    max-width: 1100px;
+    border-collapse: separate;
+    border-spacing: 0;
     margin-bottom: 50px;
+    border-radius: 12px;
+    overflow: hidden; /* Per bordi arrotondati */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 #resultsTable th {
     background-color: #CB0E2C;
     color: white;
-    padding: 15px;
-    font-family: 'Anton', sans-serif;
+    padding: 18px 15px;
+    text-transform: uppercase;
     letter-spacing: 1px;
+    text-align: left;
 }
 
 #resultsTable td {
     padding: 15px;
-    border-bottom: 2px solid #CB0E2C;
-    text-align: left;
+    border-bottom: 1px solid #eee;
+    background-color: #fff;
+    color: #333;
 }
 
-#resultsTable tr:hover {
-    background-color: #fffafa;
+#resultsTable tr:last-child td {
+    border-bottom: none;
+}
+
+#resultsTable tr:hover td {
+    background-color: #fffafa; /* Leggero tocco di rosso al passaggio del mouse */
 }
 
 .hidden {
@@ -550,9 +563,14 @@ footer {
 }
 
 #noResults {
-    font-weight: bold;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
     color: #CB0E2C;
-    margin-top: 20px;
+    margin-top: 40px;
+    text-align: center;
+    padding: 20px;
+    background: #fdf2f2;
+    border-radius: 10px;
 }
 
 /* ---- INDICE ALFABETICO ---- */
@@ -628,7 +646,7 @@ footer {
 }
 .card-label {
     font-family: Impact, sans-serif;
-    font-size: 0.85rem;
+    font-size: 1.5rem;
     letter-spacing: 2px;
     color: #CB0E2C;
     text-transform: uppercase;
@@ -649,16 +667,17 @@ footer {
     font-style: italic;
     margin-bottom: 6px;
 }
+/* Stile per il bollino della categoria dentro la tabella */
 .wod-categoria {
     display: inline-block;
     background: #CB0E2C;
     color: white;
-    font-family: 'Anton', sans-serif;
-    font-size: 1.4rem;
-    letter-spacing: 1px;
-    padding: 2px 10px;
-    border-radius: 20px;
-    margin-bottom: 14px;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    font-size: 0.85rem;
+    padding: 3px 10px;
+    border-radius: 12px;
+    text-transform: uppercase;
 }
 
 .wod-divider {
@@ -734,6 +753,36 @@ footer {
 .tag-word.pop-3 { font-size: 1.4rem; padding: 8px 20px; }
 .tag-word.pop-2 { font-size: 1.1rem; padding: 6px 16px; }
 .tag-word.pop-1 { font-size: 0.85rem; padding: 5px 13px; }
+
+.filter-wrapper {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.filter-wrapper label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.2rem;
+    margin-right: 10px;
+    color: #333;
+}
+
+.custom-select {
+    padding: 10px 15px;
+    border: 2px solid #CB0E2C; /* Rosso come il tuo tema */
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: white;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.custom-select:focus {
+    box-shadow: 0 0 8px rgba(203, 14, 44, 0.4);
+    border-color: #a50b22;
+}
+
 
 /* Responsive */
 @media (max-width: 768px) {
