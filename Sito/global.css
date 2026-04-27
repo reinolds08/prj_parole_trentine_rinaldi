@@ -792,3 +792,96 @@ footer {
 }
 
 
+/*      !!!!!<< PAGINA CHI SIAMO >>!!!!!     */
+/* Nascondi il menu laterale se presente */
+.chisiamo-page .progetto-sidebar {
+    display: none;
+}
+
+/* Centra il layout quando non c'è il menu laterale */
+.chisiamo-page .progetto-layout {
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Stili per la pagina Chi Siamo */
+.chisiamo-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.chisiamo-page section {
+    width: 100%;
+    max-width: 1000px;
+    text-align: center;
+}
+
+.chisiamo-page h1 {
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    color: #CB0E2C;
+}
+
+.chisiamo-page > section > p {
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333;
+}
+
+/* Lista contributi centrata */
+.contributions-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    max-width: 950px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.contributions-list li {
+    background-color: #fafafa;
+    border-left: 5px solid #CB0E2C;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: left;
+    max-width: 800px;
+    font-size: 1rem;
+    line-height: 1.6;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.contributions-list li:hover {
+    background-color: #fff5f5;
+    box-shadow: 0 4px 12px rgba(203,14,44,0.1);
+}
+
+
+/*      !!!!!<< PAGINA PROGETTO - NO SIDEBAR >>!!!!!     */
+/* Nascondi il menu laterale nella pagina progetto */
+.progetto-page-fullwidth .progetto-sidebar {
+    display: none;
+}
+
+/* Centra il layout del progetto quando il sidebar è nascosto */
+.progetto-page-fullwidth .progetto-layout {
+    flex-direction: column;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Contenuto del progetto a larghezza piena */
+.progetto-page-fullwidth .progetto-content {
+    width: 100%;
+    padding: 0 20px;
+}
+
+.progetto-page-fullwidth section {
+    max-width: 100%;
+}
+
+
