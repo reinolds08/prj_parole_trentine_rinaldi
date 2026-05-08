@@ -11,7 +11,8 @@ const databaseParole = [
     { termine: "Bel", traduzione: "bello", categoria: "agg", argomento: "aggettivi", def: "Piacevole alla vista." },
     { termine: "Fogo", traduzione: "fuoco", categoria: "sm", argomento: "nature", def: "Produzione di calore e luce da combustione." },
     { termine: "Zucher", traduzione: "zucchero", categoria: "sm", argomento: "cucina", def: "Sostanza dolce usata per gli alimenti." },
-    { termine: "Anel", traduzione: "anello", categoria: "sm", argomento: "oggetti", def: "Cerchio di metallo prezioso da portare al dito." }
+    { termine: "Anel", traduzione: "anello", categoria: "sm", argomento: "oggetti", def: "Cerchio di metallo prezioso da portare al dito." },
+    { termine: "Cuciaret", traduzione: "cucchiaino", categoria: "sm", argomento: "oggetti", def: "Piccolo cucchiaio per caffe es. ho forzato il cucchiaino nella tazzina" }
 ];
 
 const parolePopolari = [
