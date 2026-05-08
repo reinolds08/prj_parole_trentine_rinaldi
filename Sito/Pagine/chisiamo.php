@@ -11,17 +11,18 @@
     <header>
         <nav>
             <ul>
-                <li ><a href="../index.html">HOME</a></li>
-                <li><a href="progetto.html">PROGETTO</a></li>
-                <li class="active"><a href="chisiamo.html">CHI SIAMO</a></li>
+                <li><a href="../index.php">HOME</a></li>
+                <li><a href="progetto.php">PROGETTO</a></li>
+                <li class="active"><a href="chisiamo.php">CHI SIAMO</a></li>
             </ul>
         </nav>
-    
-            <div class="header-logos">
-                <img src="../Immages/bilinguismo.png" alt="Bilinguismo">
-                <img src="../Immages/linlab.png" alt="Linlab">
-                <img src="../Immages/buonarroti.png" alt="Buonarroti">
-            </div>
+
+
+        <div class="header-logos">
+            <img src="images/bilinguismo.png" alt="Bilinguismo">
+            <img src="images/linlab.png" alt="Linlab">
+            <img src="images/buonarroti.png" alt="Buonarroti">
+        </div>
     </header>
 
     <main class="chisiamo-page">
@@ -62,34 +63,37 @@
     <footer>
         <div class="footer-container">
             <div class="footer-section logos-section">
-   <div class="logos-row">
-                    <img src="../Immages/bilinguismo.png" alt="Bilinguismo">
-                    <img src="../Immages/linlab.png" alt="Linlab">
-                    <img src="../Immages/buonarroti.png" alt="Buonarroti">
+                <div class="logos-row">
+                    <img src="../images/bilinguismo.png" alt="Bilinguismo">
+                    <img src="../images/linlab.png" alt="Linlab">
+                    <img src="../images/buonarroti.png" alt="Buonarroti">
                 </div>
-                <img src="Immages/Trentino_CoA.svg" alt="Stemma" class="stemma-footer">
+                <img src="../images/Trentino_CoA.svg" alt="Stemma" class="stemma-footer">
             </div>
-    
+
+
             <div class="footer-section">
                 <h4>DIRITTI E COPYRIGHT</h4>
                 <p>© 2026 <strong>Parole Trentine</strong>.</p>
                 <p>All Rights Reserved.</p>
                 <p>Progetto di valorizzazione linguistica locale.</p>
             </div>
-    
+
+
             <div class="footer-section">
                 <h4>CONTATTI:</h4>
                 <p>e-mail: <a href="mailto:esempio@mail.it">esempio@mail.it</a></p>
                 <p>Tel: +39 000 00000 000</p>
                 <p>Social: <a href="#">@instagram.username</a></p>
             </div>
-    
+
+
             <div class="footer-section">
                 <h4>PAGINE:</h4>
                 <ul class="footer-links">
-                    <li><a href="../index.html">HOME</a></li>
-                    <li><a href="progetto.html">PROGETTO</a></li>
-                    <li><a href="chisiamo.html">CHI SIAMO</a></li>
+                    <li><a href="../index.php">HOME</a></li>
+                    <li><a href="progetto.php">PROGETTO</a></li>
+                    <li><a href="chisiamo.php">CHI SIAMO</a></li>
                 </ul>
             </div>
         </div>

@@ -1,191 +1,212 @@
-// --- DATABASE ---
-const databaseParole = [
-    { termine: "Canederli", traduzione: "gnocchi di pane", categoria: "sm", argomento: "cucina", def: "Gnocchi di pane raffermo, latte e uova." },
-    { termine: "Dassent", traduzione: "abbastanza", categoria: "avv", argomento: "comune", def: "Avverbio di quantità." },
-    { termine: "Sludar", traduzione: "scivolare", categoria: "vb", argomento: "natura", def: "Scivolare sul ghiaccio o neve." },
-    { termine: "Bait", traduzione: "baita", categoria: "sf", argomento: "casa", def: "Tipica costruzione montana in legno o pietra." },
-    { termine: "Ciaminara", traduzione: "camino", categoria: "sf", argomento: "casa", def: "Condotto per lo scarico dei fumi." },
-    { termine: "Sgnapa", traduzione: "grappa", categoria: "sf", argomento: "cucina", def: "Distillato di vinacce ad alta gradazione." },
-    { termine: "Gat", traduzione: "gatto", categoria: "sm", argomento: "animali", def: "Piccolo felino domestico." },
-    { termine: "Vardàr", traduzione: "guardare", categoria: "vb", argomento: "comune", def: "Osservare con attenzione." },
-    { termine: "Bel", traduzione: "bello", categoria: "agg", argomento: "aggettivi", def: "Piacevole alla vista." },
-    { termine: "Fogo", traduzione: "fuoco", categoria: "sm", argomento: "nature", def: "Produzione di calore e luce da combustione." },
-    { termine: "Zucher", traduzione: "zucchero", categoria: "sm", argomento: "cucina", def: "Sostanza dolce usata per gli alimenti." },
-    { termine: "Anel", traduzione: "anello", categoria: "sm", argomento: "oggetti", def: "Cerchio di metallo prezioso da portare al dito." },
-    { termine: "Cuciaret", traduzione: "cucchiaino", categoria: "sm", argomento: "oggetti", def: "Piccolo cucchiaio per caffe es. ho forzato il cucchiaino nella tazzina" }
-];
+// =====================
+// VARIABILI DI STATO
+// =====================
+let searchDirection = 'dial-ita';
 
-const parolePopolari = [
-    { termine: "Canederli", pop: 3 },
-    { termine: "Dassent", pop: 1 },
-    { termine: "Sgnapa", pop: 3 },  
-    { termine: "Vardàr", pop: 2 },  
-    { termine: "Bait", pop: 2 }     
-];
+// =====================
+// RICERCA DATABASE
+// =====================
+async function dbSearch() {
 
-// --- VARIABILI DI STATO ---
-let searchDirection = 'dial-ita'; 
-let ultimaLetteraSelezionata = ""; 
+    const query = document.getElementById("searchInput").value.trim();
+    const categoria = document.getElementById("grammarFilter").value;
 
-// --- GESTIONE ALFABETO ---
+    const table = document.getElementById("resultsTable");
+    const body = document.getElementById("resultsBody");
+    const noRes = document.getElementById("noResults");
+
+    // Se input vuoto → reset UI
+    if (query === "") {
+        table.classList.add("hidden");
+        noRes.classList.add("hidden");
+        body.innerHTML = "";
+        return;
+    }
+
+    const response = await fetch(
+        `api/search.php?q=${encodeURIComponent(query)}&cat=${categoria}&dir=${searchDirection}`
+    );
+
+    const data = await response.json();
+
+    body.innerHTML = "";
+
+    if (data.length > 0) {
+
+        data.forEach(item => {
+
+            body.innerHTML += `
+                <tr>
+                    <td><strong>${item.Voce}</strong></td>
+                    <td><em>${item.Italiano}</em></td>
+                    <td>${item.Cat}</td>
+                    <td>${item.Tipo}</td>
+                    <td>${item.Et_Audio ?? "-"}</td>
+                </tr>
+            `;
+        });
+
+        table.classList.remove("hidden");
+        noRes.classList.add("hidden");
+
+    } else {
+        table.classList.add("hidden");
+        noRes.classList.remove("hidden");
+    }
+}
+
+// =====================
+// RICERCA DA TASTIERA
+// =====================
+function handleKeyPress() {
+    dbSearch();
+}
+
+// =====================
+// CAMBIO DIREZIONE RICERCA
+// =====================
+function toggleSearchDirection() {
+
+    const btnText = document.getElementById('dirText');
+
+    searchDirection =
+        searchDirection === 'dial-ita'
+            ? 'ita-dial'
+            : 'dial-ita';
+
+    btnText.textContent =
+        searchDirection === 'dial-ita'
+            ? 'DIALETTO ➔ ITALIANO'
+            : 'ITALIANO ➔ DIALETTO';
+}
+
+// =====================
+// ALFABETO
+// =====================
 function buildAlphabetIndex() {
+
     const grid = document.getElementById('alphabetGrid');
-    if(!grid) return;
+
+    if (!grid) return;
 
     const lettere = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
-    grid.innerHTML = ''; 
+
+    grid.innerHTML = '';
 
     lettere.forEach(lettera => {
+
         const btn = document.createElement('button');
+
         btn.className = 'alpha-btn';
-        if (lettera === ultimaLetteraSelezionata) btn.classList.add('active');
         btn.textContent = lettera;
-        
+
         btn.onclick = () => {
-            const inArchivio = window.location.pathname.includes("archivio.html");
-            const targetUrl = inArchivio ? `archivio.html?lettera=${lettera}` : `Pagine/archivio.html?lettera=${lettera}`;
-            window.location.href = targetUrl;
+
+            document.getElementById("searchInput").value = lettera;
+
+            dbSearch();
         };
+
         grid.appendChild(btn);
     });
 }
 
-// --- MOTORE DI RICERCA ---
-function dbSearch() {
-    ultimaLetteraSelezionata = ""; 
-    document.querySelectorAll('.alpha-btn').forEach(b => b.classList.remove('active'));
-    
-    // Nascondi il filtro categoria se si usa la ricerca testuale libera
-    const filterContainer = document.getElementById('filterContainer');
-    if (filterContainer) filterContainer.classList.add('hidden');
-    
-    eseguiRicercaFiltrata(true);
+// =====================
+// RESET RICERCA
+// =====================
+function clearSearch() {
+
+    document.getElementById("searchInput").value = "";
+
+    document.getElementById("resultsBody").innerHTML = "";
+
+    document.getElementById("resultsTable").classList.add("hidden");
+
+    document.getElementById("noResults").classList.add("hidden");
 }
 
-function eseguiRicercaFiltrata(isTextSearch = false) {
-    const inputEl = document.getElementById('searchInput');
-    const input = inputEl ? inputEl.value.toLowerCase().trim() : "";
-    
-    const filterEl = document.getElementById('grammarFilter');
-    const filterContainer = document.getElementById('filterContainer');
-    const catFilter = filterEl ? filterEl.value : "";
-    
-    const table = document.getElementById('resultsTable');
-    const body = document.getElementById('resultsBody');
-    const noRes = document.getElementById('noResults');
+// =====================
+// PAROLA DEL GIORNO
+// =====================
+async function buildWordOfDay() {
 
-    if (!body) return;
-    body.innerHTML = "";
+    const response = await fetch("api/wordofday.php");
 
-    // MOSTRA IL FILTRO solo se c'è una lettera selezionata
-    if (ultimaLetteraSelezionata !== "" && filterContainer) {
-        filterContainer.classList.remove('hidden');
-    }
+    const word = await response.json();
 
-    const risultati = databaseParole.filter(item => {
-        let matchTesto = false;
-        
-        if (isTextSearch && input !== "") {
-            matchTesto = (searchDirection === 'dial-ita') ? 
-                item.termine.toLowerCase().includes(input) : 
-                item.traduzione.toLowerCase().includes(input);
-        } else if (ultimaLetteraSelezionata !== "") {
-            matchTesto = item.termine.toUpperCase().startsWith(ultimaLetteraSelezionata);
-        }
-        
-        const matchCat = catFilter === "" || item.categoria === catFilter;
-        return matchTesto && matchCat;
-    });
-
-    if (risultati.length > 0) {
-        table.classList.remove('hidden');
-        noRes.classList.add('hidden');
-        risultati.forEach(res => {
-            body.innerHTML += `<tr>
-                <td><strong>${res.termine}</strong></td>
-                <td><em>${res.traduzione}</em></td>
-                <td><span class="wod-categoria">${res.categoria}</span></td>
-                <td>${res.argomento.toUpperCase()}</td>
-                <td>${res.def}</td>
-            </tr>`;
-        });
-    } else {
-        table.classList.add('hidden');
-        if (input !== "" || ultimaLetteraSelezionata !== "") {
-            noRes.classList.remove('hidden');
-        }
-    }
+    document.getElementById("wodTermine").textContent = word.Voce;
+    document.getElementById("wodTraduzione").textContent = word.Italiano;
+    document.getElementById("wodCategoria").textContent = word.Cat;
+    document.getElementById("wodDef").textContent = word.Tipo;
 }
 
-// --- INTERFACCIA E WIDGET ---
-function toggleSearchDirection() {
-    const btnText = document.getElementById('dirText');
-    searchDirection = (searchDirection === 'dial-ita') ? 'ita-dial' : 'dial-ita';
-    if(btnText) {
-        btnText.textContent = (searchDirection === 'dial-ita') ? 'DIALETTO ➔ ITALIANO' : 'ITALIANO ➔ DIALETTO';
-    }
+// =====================
+// STATISTICHE
+// =====================
+async function buildStats() {
+
+    const response = await fetch("api/stats.php");
+
+    const stats = await response.json();
+
+    document.getElementById("statsGrid").innerHTML = `
+        <div class="stat-item">
+            <strong>${stats.totale}</strong>
+            <br>
+            Lemmi
+        </div>
+    `;
 }
 
-function buildWordOfDay() {
-    const index = new Date().getDate() % databaseParole.length;
-    const wod = databaseParole[index];
-    if(!document.getElementById('wodTermine')) return;
-    document.getElementById('wodTermine').textContent = wod.termine;
-    document.getElementById('wodTraduzione').textContent = wod.traduzione;
-    document.getElementById('wodCategoria').textContent = wod.categoria;
-    document.getElementById('wodDef').textContent = wod.def;
-}
+// =====================
+// TAG CLOUD (PAROLE POPOLARI)
+// =====================
+async function buildTagCloud() {
 
-function buildStats() {
-    const grid = document.getElementById('statsGrid');
-    if(!grid) return;
-    grid.innerHTML = `<div class="stat-item"><strong>${databaseParole.length}</strong><br>Lemmi</div>`;
-}
+    const response = await fetch("api/popular.php");
 
-function buildTagCloud() {
-    const cloud = document.getElementById('tagCloud');
-    if(!cloud) return; 
-    parolePopolari.forEach(item => {
-        const tag = document.createElement('span');
-        tag.className = `tag-word pop-${item.pop}`;
-        tag.textContent = item.termine;
+    const words = await response.json();
+
+    const cloud = document.getElementById("tagCloud");
+
+    cloud.innerHTML = "";
+
+    words.forEach(word => {
+
+        const tag = document.createElement("span");
+
+        tag.className = "tag-word";
+        tag.textContent = word.Voce;
+
         tag.onclick = () => {
-            window.location.href = `Pagine/archivio.html?lettera=${item.termine[0].toUpperCase()}`;
+
+            document.getElementById("searchInput").value = word.Voce;
+
+            dbSearch();
         };
+
         cloud.appendChild(tag);
     });
 }
 
-function handleKeyPress(e) { 
-    dbSearch(); // Ricerca istantanea
-}
-
-// --- AVVIO APPLICAZIONE ---
+// =====================
+// AVVIO APPLICAZIONE
+// =====================
 window.onload = () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const letteraUrl = urlParams.get('lettera');
-    
-    if (letteraUrl) {
-        ultimaLetteraSelezionata = letteraUrl.toUpperCase();
-        // Mostra il contenitore se arriviamo già con una lettera (es. da Home)
-        const filterContainer = document.getElementById('filterContainer');
-        if (filterContainer) filterContainer.classList.remove('hidden');
-    }
 
-    // Inizializzazione componenti
     buildAlphabetIndex();
+
     buildWordOfDay();
+
     buildStats();
+
     buildTagCloud();
 
-    // Evento al cambio della categoria
-    const filterEl = document.getElementById('grammarFilter');
-    if (filterEl) {
-        filterEl.onchange = () => eseguiRicercaFiltrata(false);
-    }
+    document
+        .getElementById("grammarFilter")
+        .addEventListener("change", dbSearch);
 
-    // Esecuzione ricerca iniziale se in archivio
-    if (window.location.pathname.includes("archivio.html") && ultimaLetteraSelezionata) {
-        eseguiRicercaFiltrata(false);
-    }
+    document
+        .getElementById("clearSearchBtn")
+        ?.addEventListener("click", clearSearch);
 };
