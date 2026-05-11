@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="it">
 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,16 +9,19 @@
     <link rel="stylesheet" href="global.css">
 </head>
 
+
 <body>
+
 
     <header>
         <nav>
             <ul>
-                <li class="active"><a href="index.html">HOME</a></li>
-                <li><a href="Pagine/progetto.html">PROGETTO</a></li>
-                <li><a href="Pagine/chisiamo.html">CHI SIAMO</a></li>
+                <li class="active"><a href="index.php">HOME</a></li>
+                <li><a href="Pagine/progetto.php">PROGETTO</a></li>
+                <li><a href="Pagine/chisiamo.php">CHI SIAMO</a></li>
             </ul>
         </nav>
+
 
         <div class="header-logos">
             <img src="Immages/bilinguismo.png" alt="Bilinguismo">
@@ -26,8 +30,10 @@
         </div>
     </header>
 
+
 <main class="content">
         <h1 class="ricercaTit">Ricerca nell'archivio</h1>
+
 
         <div class="search-container">
             <div class="search-box">
@@ -49,9 +55,11 @@
             </div>
         </div>
 
+
         <div class="alphabet-index">
             <div class="alphabet-grid" id="alphabetGrid"></div>
         </div>
+
 
         <section class="results-section">
             <table id="resultsTable" class="hidden">
@@ -69,6 +77,7 @@
             <div id="noResults" class="hidden">Nessun termine trovato nell'archivio.</div>
         </section>
 
+
         <div class="dynamic-sections">
             <div class="dynamic-card word-of-day">
                 <div class="card-label">✦ Parola del Giorno</div>
@@ -84,11 +93,13 @@
             </div>
         </div>
 
+
         <section class="popular-section">
             <div class="card-label card-label-dark">✦ Le Parole più Cercate</div>
             <div class="tag-cloud" id="tagCloud"></div>
         </section>
     </main>
+
 
     <footer>
         <div class="footer-container">
@@ -101,6 +112,7 @@
                 <img src="Immages/Trentino_CoA.svg" alt="Stemma" class="stemma-footer">
             </div>
 
+
             <div class="footer-section">
                 <h4>DIRITTI E COPYRIGHT</h4>
                 <p>© 2026 <strong>Parole Trentine</strong>.</p>
@@ -108,12 +120,14 @@
                 <p>Progetto di valorizzazione linguistica locale.</p>
             </div>
 
+
             <div class="footer-section">
                 <h4>CONTATTI:</h4>
                 <p>e-mail: <a href="mailto:esempio@mail.it">esempio@mail.it</a></p>
                 <p>Tel: +39 000 00000 000</p>
                 <p>Social: <a href="#">@instagram.username</a></p>
             </div>
+
 
             <div class="footer-section">
                 <h4>PAGINE:</h4>
@@ -126,10 +140,13 @@
         </div>
     </footer>
 
+
     <script src="script.js"></script>
+
 
 </body>
 </html>
+
 
 <?php
 $host = '127.0.0.1';
@@ -138,13 +155,16 @@ $user = 'root';
 $pass = '';
 $charset = 'utf8mb4';
 
+
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+
 
 $options = [
     PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION, // Lancia eccezioni in caso di errore
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,       // Restituisce un array associativo di default
     PDO::ATTR_EMULATE_PREPARES   => false,                  // Usa prepared statements reali
 ];
+
 
 try {
      $pdo = new PDO($dsn, $user, $pass, $options);
@@ -153,4 +173,6 @@ try {
      throw new \PDOException($e->getMessage(), (int)$e->getCode());
 }
 
+
 ?>
+
