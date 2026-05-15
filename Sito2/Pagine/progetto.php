@@ -4,8 +4,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lemma - Editing/Input</title>
+    <title>Progetto</title>
     <link rel="stylesheet" href="../global.css">
+    
+    <style>
+        body {
+    font-size: 18px; /* Ingrandisce il testo base di tutta la pagina */
+}
+
+/* TITOLI DELLE SEZIONI MIGLIORATI */
+h1, .ricercaTit {
+    font-size: 2.2rem; /* Leggermente più grande per dare importanza */
+    font-weight: 700;
+    color: rgb(0, 0, 0); /* Un colore scuro desaturato, molto più elegante del nero pieno */
+    text-transform: uppercase; /* Rende il titolo maiuscolo per un look più istituzionale */
+    letter-spacing: 1.5px; /* Spazia leggermente le lettere per aumentarne la leggibilità */
+    position: relative;
+    padding-bottom: 10px;
+    margin-top: 40px;
+    margin-bottom: 25px;
+    border-bottom: 3px solid #e30613; /* Linea di accento elegante (puoi cambiare il colore con quello del tuo progetto, es: bordeaux o oro) */
+    display: inline-block; /* Fa in modo che la linea segua la lunghezza del testo e non tutta la pagina */
+}
+
+h4 {
+    font-size: 1.5rem; /* Titoli del footer più grandi */
+    letter-spacing: 1px;
+}
+
+p, li, input, button, select, textarea {
+    font-size: 1.15rem; /* Ingrandisce paragrafi, liste, pulsanti e input */
+    line-height: 1.6; /* Migliora la leggibilità con più spazio tra le linee */
+}
+
+.accordion-header {
+    font-size: 1.4rem; /* Intestazioni degli accordion più grandi */
+    padding: 15px;
+}
+
+nav ul  a, .footer-links a {
+    font-size: 1.2rem; /* Link di navigazione più grandi */
+}
+
+b, strong {
+    font-size: 1.2rem; /* Testi in grassetto leggermente più evidenziati */
+}
+    </style>
 </head>
 
 <body>
@@ -21,17 +65,16 @@
 
 
         <div class="header-logos">
-            <img src="images/bilinguismo.png" alt="Bilinguismo">
-            <img src="images/linlab.png" alt="Linlab">
-            <img src="images/buonarroti.png" alt="Buonarroti">
-        </div>
+    <img src="../Images/bilinguismo.png" alt="Bilinguismo">
+    <img src="../Images/linlab.png" alt="Linlab">
+    <img src="../Images/buonarroti.png" alt="Buonarroti">
+</div>
     </header>
 
     <main class="progetto-page-fullwidth">
 
         <div class="progetto-layout">
 
-            <!-- SIDEBAR -->
             <div class="progetto-sidebar">
                 <ul>
                     <li onclick="scrollToSection('progetto')">Il progetto</li>
@@ -43,7 +86,7 @@
                 </ul>
             </div>
 
-            <!-- CONTENUTO -->
+
             <div class="progetto-content">
 
                 <section id="progetto">
@@ -70,85 +113,60 @@
 
                                 <b>SOGGETTI PARTECIPANTI</b><br>
                                 A. Provincia Autonoma di Trento<br>
-                                B. Università degli Studi di Trento
+                                B. Università degli Studi di Trento<br><br>
 
 
 
                                 <b>Obiettivi della ricerca</b><br><br>
 
-                                L'obiettivo principale della ricerca è la costituzione di una banca dati lessicale, in
-                                cui raccogliere in modo
-                                sistematico e secondo criteri scientificamente rigorosi il patrimonio delle numerose
-                                varietà dialettali
+                                L'obiettivo principale della ricerca è la costituzione di una banca dati lessicale, in cui raccogliere in modo
+                                sistematico e secondo criteri scientificamente rigorosi il patrimonio delle numerose varietà dialettali
                                 trentine:<br>
-                                a) in dimensione diacronica, partendo dalla lessicografia locale ottocentesca, per
-                                arrivare alle numerose, seppure
+                                a) in dimensione diacronica, partendo dalla lessicografia locale ottocentesca, per arrivare alle numerose, seppure
                                 sparse, raccolte lessicali odierne;<br>
-                                b) in dimensione diatopica, riunendo e confrontando le testimonianze lessicali delle
-                                aree linguisticamente distinte
+                                b) in dimensione diatopica, riunendo e confrontando le testimonianze lessicali delle aree linguisticamente distinte
                                 entro la provincia trentina.<br><br>
 
-                                All'archivio elettronico potranno accedere tutti coloro che al lessico dialettale sono
-                                interessati da differenti
-                                punti di vista. Essendo il modellamento lessicale un indice sicuro e misurabile del
-                                modellamento culturale,
+                                All'archivio elettronico potranno accedere tutti coloro che al lessico dialettale sono interessati da differenti
+                                punti di vista. Essendo il modellamento lessicale un indice sicuro e misurabile del modellamento culturale,
                                 l'archivio potrà costituire una buona base per ricerche pluridisciplinari.<br>
-                                Rispetto ad un volume cartaceo, l'archivio elettronico presenta il vantaggio di proporsi
-                                non come opera chiusa, ma
-                                come magazzino aperto, cui sia sempre possibile aggiungere nuovi dati e nuovi settori
-                                pertinenti.<br>
-                                Ciò non impedirebbe, comunque, in una fase avanzata del lavoro, di dare forma di
-                                pubblicazione ad una parte
+                                Rispetto ad un volume cartaceo, l'archivio elettronico presenta il vantaggio di proporsi non come opera chiusa, ma
+                                come magazzino aperto, cui sia sempre possibile aggiungere nuovi dati e nuovi settori pertinente.<br>
+                                Ciò non impedirebbe, comunque, in una fase avanzata del lavoro, di dare forma di pubblicazione ad una parte
                                 significativa dello stesso.<br><br>
 
-                                Per raggiungere il primo obiettivo è necessario formulare un modello scientifico per i
-                                lessici dialettali secondo
-                                criteri innovativi, sia per la metodologia del lavoro sia per la strutturazione
-                                dell'opera. La lessicografia
-                                dialettale, spesso frammentata in opere locali, soffre infatti per la mancanza di uno
-                                standard condiviso.
-
-
-
+                                Per raggiungere il primo obiettivo è necessario formulare un modello scientifico per i lessici dialettali secondo
+                                criteri innovativi, sia per la metodologia del lavoro sia per la strutturazione dell'opera. La lessicografia
+                                dialettale, spesso frammentata in opere locali, soffre infatti per la mancanza di uno standard condiviso.<br><br>
+                                
                                 <b>2. Stato dell’arte</b><br><br>
 
                                 <b>2.1 Base di partenza</b><br>
-                                Dal punto di vista linguistico il Trentino rappresenta un'area particolarmente
-                                interessante, dove diverse correnti
+                                Dal punto di vista linguistico il Trentino rappresenta un'area particolarmente interessante, dove diverse correnti
                                 si intersecano: i dialetti mostrano tratti lombardi, veneti, ladini e germanici.<br>
-                                Esistono tuttavia tendenze comuni che permettono di delineare una koinè linguistica con
-                                una propria unità fonetica e
+                                Esistono tuttavia tendenze communes che permettono di delineare una koinè linguistica con una propria unità fonetica e
                                 morfologica.<br><br>
 
-                                Nonostante la rapida evoluzione linguistica recente, studi mostrano una significativa
-                                persistenza dell’uso del
+                                Nonostante la rapida evoluzione linguistica recente, studi mostrano una significativa persistenza dell’uso del
                                 dialetto, soprattutto in contesti informali ma anche lavorativi.<br>
-                                Questo si riflette in un crescente interesse per la raccolta di vocaboli dialettali,
-                                spesso però frammentaria e non
+                                Questo si riflette in un crescente interesse per la raccolta di vocaboli dialettali, spesso però frammentaria e non
                                 uniforme.<br><br>
 
                                 <b>2.2 Motivazioni del progetto</b><br>
-                                La frammentarietà e la diversità delle opere lessicografiche rendono necessario
-                                integrare e uniformare gli strumenti
+                                La frammentarietà e la diversità delle opere lessicografiche rendono necessario integrare e uniformare gli strumenti
                                 esistenti.<br>
-                                Le opere più antiche avevano finalità didattiche verso l’italiano, mentre quelle più
-                                recenti mirano alla
-                                conservazione di lessici in via di estinzione, risultando però spesso
-                                disomogenee.<br><br>
+                                Le opere più antiche avevano finalità didattiche verso l’italiano, mentre quelle più recenti mirano alla
+                                conservazione di lessici in via di estinzione, risultando però spesso disomogenee.<br><br>
 
-                                In Italia mancano raccolte sistematiche, soprattutto in formato elettronico, nonostante
-                                l’interesse crescente per
-                                questo tipo di ricerca.
-
-
-
+                                In Italia mancano raccolte sistematiche, soprattutto in formato elettronico, nonostante l’interesse crescente per
+                                questo tipo di ricerca.<br><br>
+                                
                                 <b>3. Piano di lavoro</b><br><br>
 
                                 <b>3.1 Fasi</b><br><br>
 
                                 1) Censimento dell’esistente<br>
-                                Dizionari, repertori settoriali (mestieri, flora, fauna), atlanti linguistici, tesi di
-                                laurea, raccolte
+                                Dizionari, repertori settoriali (mestieri, flora, fauna), atlanti linguistici, tesi di laurea, raccolte
                                 lessicali.<br>
                                 [durata prevista: 3 mesi]<br><br>
 
@@ -175,11 +193,8 @@
                                 - convegno interdisciplinare<br>
                                 - possibile pubblicazione del materiale<br><br>
 
-                                Il progetto presenta un forte interesse pubblico, con applicazioni in ambito scientifico
-                                e didattico.
-
-
-
+                                Il progetto presenta un forte interesse pubblico, con applicazioni in ambito scientifico e didattico.<br><br>
+                                
                                 <b>4. Gruppo di ricerca</b><br><br>
 
                                 Coordinatrice<br>
@@ -200,6 +215,7 @@
                     </div>
                 </section>
 
+
                 <section id="fonti">
                     <h1>Fonti</h1>
 
@@ -208,34 +224,21 @@
                         <div class="accordion-content">
                             <p>
                                 <br>
-                                Aneggi A., Dizionario cembrano (triangolo Sover-Montesover-Piscine): parole e cose-
-                                frasi - modo di dire - proverbi
-                                del dialetto della valle di Cembra, (revisione linguistica a cura di P. Rizzolatti), S.
-                                Michele a/A (TN), Museo
-                                degli Usi e costumi della gente trentina, 1984<br>
+                                Aneggi A., Dizionario cembrano (triangolo Sover-Montesover-Piscine): parole e cose- frasi - modo di dire - proverbi del dialetto della valle di Cembra, (revisione linguistica a cura di P. Rizzolatti), S. Michele a/A (TN), Museo degli Usi e costumi della gente trentina, 1984<br>
                                 1984 Aneggi<br><br>
 
-                                Azzolini G., Vocabolario vernacolo-italiano pei distretti roveretano e trentino del
-                                professore Giambattista
-                                Azzolini, Trento, Provincia Autonoma, Assessorato alle Attività Culturali, 1976
-                                1843?-1976 Azzolini<br><br>
+                                Azzolini G., Vocabolario vernacolo-italiano pei distretti roveretano e trentino del professore Giambattista Azzolini, Trento, Provincia Autonoma, Assessorato alle Attività Culturali, 1976 1843?-1976 Azzolini<br><br>
 
-                                Biasetto A., Dizionario tesino. Dialèto e dèrgo de Castèl Tasin, Rovereto, Osiride,
-                                1996<br>
+                                Biasetto A., Dizionario tesino. Dialèto e dèrgo de Castèl Tasin, Rovereto, Osiride, 1996<br>
                                 1996 Biasetto<br><br>
 
-                                Bonapace U., Parlar pinzuler: raccolta di vocaboli, modo di dire, proverbi, soprannomi
-                                di famiglie, fiabe e
-                                filastrocche del dialetto pinzolese, Pinzolo, Famiglia Cooperativa, 1985<br>
+                                Bonapace U., Parlar pinzuler: raccolta di vocaboli, modo di dire, proverbi, soprannomi di famiglie, fiabe e filastrocche del dialetto pinzolese, Pinzolo, Famiglia Cooperativa, 1985<br>
                                 1985 Bonapace<br><br>
 
-                                Bonenti F., Glossario dialettale di Bondo e Breguzzo, Breguzzo (TN), Gruppo culturale
-                                Bondo - Breguzzo, 1997<br>
+                                Bonenti F., Glossario dialettale di Bondo e Breguzzo, Breguzzo (TN), Gruppo culturale Bondo - Breguzzo, 1997<br>
                                 1997 Bonenti<br><br>
 
-                                Boninsegna A., Dialetto e mestieri a Predazzo: il lessico tecnico di alcuni mestieri nel
-                                dialetto di Predazzo,
-                                Trento, Alcione, 1980<br>
+                                Boninsegna A., Dialetto e mestieri a Predazzo: il lessico tecnico di alcuni mestieri nel dialetto di Predazzo, Trento, Alcione, 1980<br>
                                 1980 Boninsegna<br><br>
 
                                 Circolo Pensionati di Tione, Dialet de Tio', Tione, Circolo Pensionati, 1984<br>
@@ -244,14 +247,10 @@
                                 Dell'Antonio G., Vocabolario ladino moenese - italiano, Moena (TN), 1970?<br>
                                 1970? Dell'Antonio<br><br>
 
-                                De Rossi H., Ladinisches Worterbuch - Vocabolario ladino (brach) - tedesco con
-                                traduzione italiana, a cura di Ulrike
-                                Kindl e Fabio Chiocchetti, 1999<br>
+                                De Rossi H., Ladinisches Worterbuch - Vocabolario ladino (brach) - tedesco con traduzione italiana, a cura di Ulrike Kindl e Fabio Chiocchetti, 1999<br>
                                 1914?-1999 De Rossi<br><br>
 
-                                Fox E. (a cura di), Vocabolario della parlata dell'Altopiano di Piné. Lingua,
-                                tradizione, cultura, Ed. Comune di
-                                Baselga di Piné (TN), 1996<br>
+                                Fox E. (a cura di), Vocabolario della parlata dell'Altopiano di Piné. Lingua, tradizione, cultura, Ed. Comune di Baselga di Piné (TN), 1996<br>
                                 1996 Fox<br><br>
 
                                 Gartner Th., Die Judicarische Mundart, Wien, 1882<br>
@@ -260,55 +259,37 @@
                                 Grassi C., in stampa (sul dialetto di Montagne)<br>
                                 [in stampa] Grassi<br><br>
 
-                                Groff L., Dizionario trentino-italiano: oltre 3000 voci, frasi, detti e proverbi
-                                trentini, note sulla struttura e
-                                diffusione del dialetto. Florilegio di poesie e prose dialettali; con biografie di 15
-                                autori del Trentino, Trento,
-                                Monauni, 1955<br>
+                                Groff L., Dizionario trentino-italiano: oltre 3000 voci, frasi, detti e proverbi trentini, note sulla struttura e diffusione del dialetto. Florilegio di poesie e prose dialettali; con biografie di 15 autori del Trentino, Trento, Monauni, 1955<br>
                                 1955 Groff<br><br>
 
-                                Guadagnini don A. - Castellani Piazza L., Dizionario del dialetto di Predazzo.
-                                Bellamonte e i suoi 'tabiai',
-                                Rovereto (TN), Longo, 1985<br>
+                                Guadagnini don A. - Castellani Piazza L., Dizionario del dialetto di Predazzo. Bellamonte e i suoi 'tabiai', Rovereto (TN), Longo, 1985<br>
                                 1985 Guadagnini<br><br>
 
-                                Mazzel M., Dizionario ladino fassano (cazet) - italiano, Vigo di Fassa (TN), 1969; 1976
-                                (4), 1995<br>
+                                Mazzel M., Dizionario ladino fassano (cazet) - italiano, Vigo di Fassa (TN), 1969; 1976 (4), 1995<br>
                                 1969-1995 Mazzel<br><br>
 
-                                Prati A., Dizionario valsuganotto, Venezia, Roma, Istituto per la collaborazione
-                                culturale, 1960<br>
+                                Prati A., Dizionario valsuganotto, Venezia, Roma, Istituto per la collaborazione culturale, 1960<br>
                                 1960 Prati<br><br>
 
-                                Quaresima E., Vocabolario anaunico e solandro raffrontato col trentino, Venezia, Roma,
-                                Istituto per la
-                                collaborazione culturale, 1964<br>
+                                Quaresima E., Vocabolario anaunico e solandro raffrontato col trentino, Venezia, Roma, Istituto per la collaborazione culturale, 1964<br>
                                 1964 Quaresima<br><br>
 
-                                Ricci V., Vocabolario trentino-italiano compilato da alcune signorine di Trento col
-                                consiglio e con la revisione del
-                                prof. V. R., Trento, Zippel, 1904<br>
+                                Ricci V., Vocabolario trentino-italiano compilato da alcune signorine di Trento col consiglio e con la revisione del prof. V. R., Trento, Zippel, 1904<br>
                                 1904 Ricci<br><br>
 
                                 Salvadori G.B., Vocabolario del dialetto di Roncone, Comune di Roncone, 1999<br>
                                 1999 Salvadori<br><br>
 
-                                Scalfi E., Duemila parole del mio paese: tentativi etimologici sul dialetto di Tione,
-                                Trento, Panorama, 1983<br>
+                                Scalfi E., Duemila parole del mio paese: tentativi etimologici sul dialetto di Tione, Trento, Panorama, 1983<br>
                                 1983 Scalfi<br><br>
 
-                                Tissot L., Dizionario primierotto: parole, frasi, modi di dire, proverbi del dialetto di
-                                Primiero, Trento, Provincia
-                                Autonoma, 1976<br>
+                                Tissot L., Dizionario primierotto: parole, frasi, modi di dire, proverbi del dialetto di Primiero, Trento, Provincia Autonoma, 1976<br>
                                 1976 Tissot<br><br>
 
-                                Tomasini R., Il dialetto della Val Rendena, S. Michele a/A (TN), Museo degli Usi e
-                                Costumi della Gente Trentina,
-                                1990<br>
+                                Tomasini R., Il dialetto della Val Rendena, S. Michele a/A (TN), Museo degli Usi e Costumi della Gente Trentina, 1990<br>
                                 1990 Tomasini<br><br>
 
-                                Zorzi A., Parole da sti agni: dialetto di Ziano di Fiemme, Rovereto (TN), Longo,
-                                1987<br>
+                                Zorzi A., Parole da sti agni: dialetto di Ziano di Fiemme, Rovereto (TN), Longo, 1987<br>
                                 1987 Zorzi
                             </p>
                         </div>
@@ -319,8 +300,7 @@
                         <div class="accordion-content">
                             <p>
                                 <br>
-                                AIS. Atlante linguistico ed etnografico dell'Italia e della Svizzera meridionale,
-                                1928-1940.<br>
+                                AIS. Atlante linguistico ed etnografico dell'Italia e della Svizzera meridionale, 1928-1940.<br>
                                 [data] AIS<br><br>
 
                                 ALI. Atlante Linguistico Italiano, dal 1995<br>
@@ -352,18 +332,13 @@
                                 Bonomi A., Quinta contribuzione all'avifauna tridentina, Rovereto, Sottochiesa, 1903<br>
                                 1903 Bonomi<br><br>
 
-                                Bonomi A., Sesta contribuzione all'avifauna tridentina. Note ornitologiche, Rovereto,
-                                Grandi, 1909<br>
+                                Bonomi A., Sesta contribuzione all'avifauna tridentina. Note ornitologiche, Rovereto, Grandi, 1909<br>
                                 1909 Bonomi<br><br>
 
-                                Pedrotti G., Vocabolarietto dialettale degli arnesi rurali della Val d'Adige e delle
-                                altre valli trentine, Trento,
-                                Società per gli Studi Trentini, 1936<br>
+                                Pedrotti G., Vocabolarietto dialettale degli arnesi rurali della Val d'Adige e delle altre valli trentine, Trento, Società per gli Studi Trentini, 1936<br>
                                 1936 Pedrotti<br><br>
 
-                                Pedrotti G. - Bertoldi V., Nomi dialettali delle piante indigene del Trentino e della
-                                Ladinia dolomitica, Trento?,
-                                1930<br>
+                                Pedrotti G. - Bertoldi V., Nomi dialettali delle piante indigene del Trentino e della Ladinia dolomitica, Trento?, 1930<br>
                                 1930 Pedrotti
                             </p>
                         </div>
@@ -494,7 +469,7 @@
                                 inter. = interiezione<br>
                                 interc. = intercalare<br>
                                 interr.; interrog. = interrogativo<br>
-                                intr.; intrans. = intransitivo<br>
+                                intr.; intrans. = transitivo<br>
                                 inv.; invar. = invariabile<br>
                                 iron. = ironico<br>
                                 irreg. = irregolare<br>
@@ -606,6 +581,7 @@
                             </div>
                             <div id="temp_js"></div>
                         </div>
+                    </div>
                 </section>
 
                 <section id="admin">
@@ -628,13 +604,13 @@
 
     <footer>
         <div class="footer-container">
-            <div class="footer-section logos-section">
-                <div class="logos-row">
-                    <img src="../images/bilinguismo.png" alt="Bilinguismo">
-                    <img src="../images/linlab.png" alt="Linlab">
-                    <img src="../images/buonarroti.png" alt="Buonarroti">
-                </div>
-                <img src="../images/Trentino_CoA.svg" alt="Stemma" class="stemma-footer">
+        <div class="footer-section logos-section">
+        <div class="logos-row">
+    <img src="../Images/bilinguismo.png" alt="Bilinguismo">
+    <img src="../Images/linlab.png" alt="Linlab">
+    <img src="../Images/buonarroti.png" alt="Buonarroti">
+</div>
+<img src="../Images/Trentino_CoA.svg" alt="Stemma" class="stemma-footer">
             </div>
 
 
@@ -665,6 +641,7 @@
         </div>
     </footer>
 
+
     <script>
         let btn_invio = document.getElementById("btn_invio_sugg");
         let div_temp_js = document.getElementById("temp_js");
@@ -677,22 +654,20 @@
 
             let p = document.createElement("p");
             p.innerText = `Parola: ${parola} | Traduzione: ${traduzione} | Esempio: ${esempio} | Audio: ${fileAudio} | Immagine: ${fileImage}`;
-            p.style = "text-align: center; font-weight: bold;"
+            p.style = "text-align: center; font-weight: bold; font-size: 1.15rem;" // Aggiunto font-size anche qui per coerenza
             div_temp_js.appendChild(p);
-        }); 
+        });
     </script>
 
     <script>
         const box = document.querySelector('.box');
-
-        if (box.scrollHeight > 400) {
+        if (box && box.scrollHeight > 400) { // Aggiunto controllo di esistenza per evitare errori in console
             box.style.overflowY = 'auto';
         }
     </script>
 
 
     <script>
-
         // ACCORDION
         const headers = document.querySelectorAll('.accordion-header');
         headers.forEach(header => {
@@ -708,7 +683,6 @@
         function scrollToSection(id) {
             document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
         }
-
     </script>
 
 </body>

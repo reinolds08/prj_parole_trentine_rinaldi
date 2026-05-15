@@ -13,18 +13,16 @@
     <header>
         <nav>
             <ul>
-                <li class="active"><a href="../index.php">HOME</a></li>
+                <li><a href="../index.php">HOME</a></li>
                 <li><a href="progetto.php">PROGETTO</a></li>
                 <li><a href="chisiamo.php">CHI SIAMO</a></li>
             </ul>
         </nav>
-
-
         <div class="header-logos">
-            <img src="images/bilinguismo.png" alt="Bilinguismo">
-            <img src="images/linlab.png" alt="Linlab">
-            <img src="images/buonarroti.png" alt="Buonarroti">
-        </div>
+             <img src="../Images/bilinguismo.png" alt="Bilinguismo">
+            <img src="../Images/linlab.png" alt="Linlab">
+            <img src="../Images/buonarroti.png" alt="Buonarroti">
+    </div>
     </header>
 
     <main class="content">
@@ -34,36 +32,45 @@
             <div class="alphabet-grid" id="alphabetGrid"></div>
         </div>
 
-        <section class="results-section">
-            <div id="filterContainer" class="filter-wrapper hidden" style="margin-bottom: 20px; text-align: center;">
-                <label for="grammarFilter"><strong>Filtra per categoria:</strong> </label>
-                <select id="grammarFilter" class="custom-select">
+        <div class="search-container" style="margin-bottom: 20px; text-align: center;">
+            <div class="search-box" style="display: inline-flex; gap: 10px; align-items: center; justify-content: center;">
+                <input type="text" id="searchInput" placeholder="Cerca nell'archivio..." onkeyup="handleKeyPress(event)">
+                
+                <select id="grammarFilter" class="filter-select">
                     <option value="">Tutte le categorie</option>
-                    <option value="sm">Nome maschile (sm)</option>
-                    <option value="sf">Nome femminile (sf)</option>
-                    <option value="np">Nome proprio (np)</option>
-                    <option value="vb">Verbo (vb)</option>
-                    <option value="avv">Avverbio (avv)</option>
+                    <option value="Sostantivo">Sostantivo</option>
+                    <option value="Verbo">Verbo</option>
+                    <option value="Aggettivo">Aggettivo</option>
+                    <option value="Avverbio">Avverbio</option>
                 </select>
+                
+                <button id="clearSearchBtn" class="clear-btn">✖</button>
             </div>
+            
+            <div style="margin-top: 15px;">
+                <button class="toggle-btn" onclick="toggleSearchDirection()">
+                    <span id="dirText">DIALETTO ➔ ITALIANO</span>
+                </button>
+            </div>
+        </div>
 
-            <table id="resultsTable" class="hidden">
+        <section class="results-section">
+            <table id="resultsTable" class="results-table hidden">
                 <thead>
                     <tr>
-                        <th>Termine</th>
-                        <th>Traduzione</th>
+                        <th>Voce</th>
+                        <th>Italiano</th>
                         <th>Categoria</th>
-                        <th>Argomento</th>
                         <th>Definizione</th>
+                        <th>Audio/Note</th>
                     </tr>
                 </thead>
-                <tbody id="resultsBody"></tbody>
+                <tbody id="resultsBody">
+                    </tbody>
             </table>
 
-            <div id="noResults" class="hidden">
-                <p style="text-align: center; margin-top: 20px;">
-                    Nessun termine trovato per i criteri selezionati.
-                </p>
+            <div id="noResults" class="no-results hidden">
+                Nessun risultato trovato.
             </div>
         </section>
     </main>
@@ -71,14 +78,13 @@
     <footer>
         <div class="footer-container">
             <div class="footer-section logos-section">
-                <div class="logos-row">
-                    <img src="../images/bilinguismo.png" alt="Bilinguismo">
-                    <img src="../images/linlab.png" alt="Linlab">
-                    <img src="../images/buonarroti.png" alt="Buonarroti">
-                </div>
-                <img src="../images/Trentino_CoA.svg" alt="Stemma" class="stemma-footer">
+            <div class="logos-row">
+    <img src="../Images/bilinguismo.png" alt="Bilinguismo">
+    <img src="../Images/linlab.png" alt="Linlab">
+    <img src="../Images/buonarroti.png" alt="Buonarroti">
+</div>
+<img src="../Images/Trentino_CoA.svg" alt="Stemma" class="stemma-footer">
             </div>
-
 
             <div class="footer-section">
                 <h4>DIRITTI E COPYRIGHT</h4>
@@ -87,14 +93,12 @@
                 <p>Progetto di valorizzazione linguistica locale.</p>
             </div>
 
-
             <div class="footer-section">
                 <h4>CONTATTI:</h4>
                 <p>e-mail: <a href="mailto:esempio@mail.it">esempio@mail.it</a></p>
                 <p>Tel: +39 000 00000 000</p>
                 <p>Social: <a href="#">@instagram.username</a></p>
             </div>
-
 
             <div class="footer-section">
                 <h4>PAGINE:</h4>
@@ -108,6 +112,6 @@
     </footer>
 
     <script src="../script.js"></script>
-</body>
 
+</body>
 </html>

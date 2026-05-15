@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Chi Siamo</title>
     <link rel="stylesheet" href="../global.css">
 </head>
 <body>
@@ -19,10 +19,10 @@
 
 
         <div class="header-logos">
-            <img src="images/bilinguismo.png" alt="Bilinguismo">
-            <img src="images/linlab.png" alt="Linlab">
-            <img src="images/buonarroti.png" alt="Buonarroti">
-        </div>
+    <img src="../Images/bilinguismo.png" alt="Bilinguismo">
+    <img src="../Images/linlab.png" alt="Linlab">
+    <img src="../Images/buonarroti.png" alt="Buonarroti">
+</div>
     </header>
 
     <main class="chisiamo-page">
@@ -62,13 +62,13 @@
 
     <footer>
         <div class="footer-container">
-            <div class="footer-section logos-section">
-                <div class="logos-row">
-                    <img src="../images/bilinguismo.png" alt="Bilinguismo">
-                    <img src="../images/linlab.png" alt="Linlab">
-                    <img src="../images/buonarroti.png" alt="Buonarroti">
-                </div>
-                <img src="../images/Trentino_CoA.svg" alt="Stemma" class="stemma-footer">
+        <div class="footer-section logos-section">
+        <div class="logos-row">
+    <img src="../Images/bilinguismo.png" alt="Bilinguismo">
+    <img src="../Images/linlab.png" alt="Linlab">
+    <img src="../Images/buonarroti.png" alt="Buonarroti">
+</div>
+<img src="../Images/Trentino_CoA.svg" alt="Stemma" class="stemma-footer">
             </div>
 
 

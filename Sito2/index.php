@@ -5,14 +5,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ricerca nell'Archivio - Parole Trentine</title>
+    <title>E-Trentin</title>
     <link rel="stylesheet" href="global.css">
 </head>
 
 
 <body>
-
-
     <header>
         <nav>
             <ul>
@@ -24,15 +22,15 @@
 
 
         <div class="header-logos">
-            <img src="Immages/bilinguismo.png" alt="Bilinguismo">
-            <img src="Immages/linlab.png" alt="Linlab">
-            <img src="Immages/buonarroti.png" alt="Buonarroti">
+            <img src="Images/bilinguismo.png" alt="Bilinguismo">
+            <img src="Images/linlab.png" alt="Linlab">
+            <img src="Images/buonarroti.png" alt="Buonarroti">
         </div>
     </header>
 
 
 <main class="content">
-        <h1 class="ricercaTit">Ricerca nell'archivio</h1>
+        <h1 class="ricercaTit">e-Trentin</h1>
 
 
         <div class="search-container">
@@ -105,11 +103,11 @@
         <div class="footer-container">
             <div class="footer-section logos-section">
                 <div class="logos-row">
-                    <img src="Immages/bilinguismo.png" alt="Bilinguismo">
-                    <img src="Immages/linlab.png" alt="Linlab">
-                    <img src="Immages/buonarroti.png" alt="Buonarroti">
+                    <img src="Images/bilinguismo.png" alt="Bilinguismo">
+                    <img src="Images/linlab.png" alt="Linlab">
+                    <img src="Images/buonarroti.png" alt="Buonarroti">
                 </div>
-                <img src="Immages/Trentino_CoA.svg" alt="Stemma" class="stemma-footer">
+                <img src="Images/Trentino_CoA.svg" alt="Stemma" class="stemma-footer">
             </div>
 
 
